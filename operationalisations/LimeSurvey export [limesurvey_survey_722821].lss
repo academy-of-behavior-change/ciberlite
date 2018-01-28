@@ -1,0 +1,2386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+ <LimeSurveyDocType>Survey</LimeSurveyDocType>
+ <DBVersion>184</DBVersion>
+ <languages>
+  <language>nl-informal</language>
+ </languages>
+ <answers>
+  <fields>
+   <fieldname>qid</fieldname>
+   <fieldname>code</fieldname>
+   <fieldname>answer</fieldname>
+   <fieldname>sortorder</fieldname>
+   <fieldname>assessment_value</fieldname>
+   <fieldname>language</fieldname>
+   <fieldname>scale_id</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <qid><![CDATA[2805]]></qid>
+    <code><![CDATA[1]]></code>
+    <answer/>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2805]]></qid>
+    <code><![CDATA[2]]></code>
+    <answer/>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2805]]></qid>
+    <code><![CDATA[3]]></code>
+    <answer/>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2805]]></qid>
+    <code><![CDATA[4]]></code>
+    <answer/>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2805]]></qid>
+    <code><![CDATA[5]]></code>
+    <answer/>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2797]]></qid>
+    <code><![CDATA[1]]></code>
+    <answer/>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2797]]></qid>
+    <code><![CDATA[2]]></code>
+    <answer/>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2797]]></qid>
+    <code><![CDATA[3]]></code>
+    <answer/>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2797]]></qid>
+    <code><![CDATA[4]]></code>
+    <answer/>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2797]]></qid>
+    <code><![CDATA[5]]></code>
+    <answer/>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2789]]></qid>
+    <code><![CDATA[1]]></code>
+    <answer/>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2789]]></qid>
+    <code><![CDATA[2]]></code>
+    <answer/>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2789]]></qid>
+    <code><![CDATA[3]]></code>
+    <answer/>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2789]]></qid>
+    <code><![CDATA[4]]></code>
+    <answer/>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2789]]></qid>
+    <code><![CDATA[5]]></code>
+    <answer/>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2781]]></qid>
+    <code><![CDATA[1]]></code>
+    <answer/>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2781]]></qid>
+    <code><![CDATA[2]]></code>
+    <answer/>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2781]]></qid>
+    <code><![CDATA[3]]></code>
+    <answer/>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2781]]></qid>
+    <code><![CDATA[4]]></code>
+    <answer/>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2781]]></qid>
+    <code><![CDATA[5]]></code>
+    <answer/>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2773]]></qid>
+    <code><![CDATA[1]]></code>
+    <answer/>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2773]]></qid>
+    <code><![CDATA[2]]></code>
+    <answer/>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2773]]></qid>
+    <code><![CDATA[3]]></code>
+    <answer/>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2773]]></qid>
+    <code><![CDATA[4]]></code>
+    <answer/>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2773]]></qid>
+    <code><![CDATA[5]]></code>
+    <answer/>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2743]]></qid>
+    <code><![CDATA[1]]></code>
+    <answer/>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2743]]></qid>
+    <code><![CDATA[2]]></code>
+    <answer/>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2743]]></qid>
+    <code><![CDATA[3]]></code>
+    <answer/>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2743]]></qid>
+    <code><![CDATA[4]]></code>
+    <answer/>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2743]]></qid>
+    <code><![CDATA[5]]></code>
+    <answer/>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2753]]></qid>
+    <code><![CDATA[no]]></code>
+    <answer><![CDATA[Nee, ik ga niet akkoord met deelname.]]></answer>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2753]]></qid>
+    <code><![CDATA[yes]]></code>
+    <answer><![CDATA[Ja, ik ga akkoord met deelname.]]></answer>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2757]]></qid>
+    <code><![CDATA[1]]></code>
+    <answer/>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2757]]></qid>
+    <code><![CDATA[2]]></code>
+    <answer/>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2757]]></qid>
+    <code><![CDATA[3]]></code>
+    <answer/>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2757]]></qid>
+    <code><![CDATA[4]]></code>
+    <answer/>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2757]]></qid>
+    <code><![CDATA[5]]></code>
+    <answer/>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2765]]></qid>
+    <code><![CDATA[1]]></code>
+    <answer/>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2765]]></qid>
+    <code><![CDATA[2]]></code>
+    <answer/>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2765]]></qid>
+    <code><![CDATA[3]]></code>
+    <answer/>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2765]]></qid>
+    <code><![CDATA[4]]></code>
+    <answer/>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2765]]></qid>
+    <code><![CDATA[5]]></code>
+    <answer/>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2822]]></qid>
+    <code><![CDATA[femal]]></code>
+    <answer><![CDATA[Vrouw]]></answer>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2822]]></qid>
+    <code><![CDATA[male]]></code>
+    <answer><![CDATA[Man]]></answer>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2823]]></qid>
+    <code><![CDATA[1]]></code>
+    <answer><![CDATA[Basisonderwijs]]></answer>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2823]]></qid>
+    <code><![CDATA[2]]></code>
+    <answer><![CDATA[VMBO (bijvoorbeeld praktijkonderwijs)]]></answer>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2823]]></qid>
+    <code><![CDATA[3]]></code>
+    <answer><![CDATA[HAVO / VWO]]></answer>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2823]]></qid>
+    <code><![CDATA[4]]></code>
+    <answer><![CDATA[MBO (bijvoorbeeld een ROC)]]></answer>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2823]]></qid>
+    <code><![CDATA[5]]></code>
+    <answer><![CDATA[HBO]]></answer>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2823]]></qid>
+    <code><![CDATA[6]]></code>
+    <answer><![CDATA[WO (bijvoorbeeld een MSc of PhD)]]></answer>
+    <sortorder><![CDATA[6]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2813]]></qid>
+    <code><![CDATA[1]]></code>
+    <answer/>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2813]]></qid>
+    <code><![CDATA[2]]></code>
+    <answer/>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2813]]></qid>
+    <code><![CDATA[3]]></code>
+    <answer/>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2813]]></qid>
+    <code><![CDATA[4]]></code>
+    <answer/>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[2813]]></qid>
+    <code><![CDATA[5]]></code>
+    <answer/>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[1]]></assessment_value>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+  </rows>
+ </answers>
+ <groups>
+  <fields>
+   <fieldname>gid</fieldname>
+   <fieldname>sid</fieldname>
+   <fieldname>group_name</fieldname>
+   <fieldname>group_order</fieldname>
+   <fieldname>description</fieldname>
+   <fieldname>language</fieldname>
+   <fieldname>randomization_group</fieldname>
+   <fieldname>grelevance</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <gid><![CDATA[183]]></gid>
+    <sid><![CDATA[722821]]></sid>
+    <group_name><![CDATA[Toestemmingsverklaring]]></group_name>
+    <group_order><![CDATA[0]]></group_order>
+    <description/>
+    <language><![CDATA[nl-informal]]></language>
+    <randomization_group/>
+    <grelevance/>
+   </row>
+   <row>
+    <gid><![CDATA[184]]></gid>
+    <sid><![CDATA[722821]]></sid>
+    <group_name><![CDATA[De komende maand helemaal geen koffie drinken]]></group_name>
+    <group_order><![CDATA[3]]></group_order>
+    <description/>
+    <language><![CDATA[nl-informal]]></language>
+    <randomization_group><![CDATA[behavior]]></randomization_group>
+    <grelevance><![CDATA[informedConsent=="yes"]]></grelevance>
+   </row>
+   <row>
+    <gid><![CDATA[185]]></gid>
+    <sid><![CDATA[722821]]></sid>
+    <group_name><![CDATA[Geen toestemming gegeven voor deelname]]></group_name>
+    <group_order><![CDATA[1]]></group_order>
+    <description/>
+    <language><![CDATA[nl-informal]]></language>
+    <randomization_group/>
+    <grelevance><![CDATA[informedConsent=="no"]]></grelevance>
+   </row>
+   <row>
+    <gid><![CDATA[186]]></gid>
+    <sid><![CDATA[722821]]></sid>
+    <group_name><![CDATA[De komende maand vooral met het openbaar vervoer reizen]]></group_name>
+    <group_order><![CDATA[4]]></group_order>
+    <description/>
+    <language><![CDATA[nl-informal]]></language>
+    <randomization_group><![CDATA[behavior]]></randomization_group>
+    <grelevance><![CDATA[informedConsent=="yes"]]></grelevance>
+   </row>
+   <row>
+    <gid><![CDATA[187]]></gid>
+    <sid><![CDATA[722821]]></sid>
+    <group_name><![CDATA[De komende maand soms door rood licht fietsen]]></group_name>
+    <group_order><![CDATA[5]]></group_order>
+    <description/>
+    <language><![CDATA[nl-informal]]></language>
+    <randomization_group><![CDATA[behavior]]></randomization_group>
+    <grelevance><![CDATA[informedConsent=="yes"]]></grelevance>
+   </row>
+   <row>
+    <gid><![CDATA[188]]></gid>
+    <sid><![CDATA[722821]]></sid>
+    <group_name><![CDATA[De komende maand afval altijd nauwkeurig scheiden]]></group_name>
+    <group_order><![CDATA[6]]></group_order>
+    <description/>
+    <language><![CDATA[nl-informal]]></language>
+    <randomization_group><![CDATA[behavior]]></randomization_group>
+    <grelevance><![CDATA[informedConsent=="yes"]]></grelevance>
+   </row>
+   <row>
+    <gid><![CDATA[189]]></gid>
+    <sid><![CDATA[722821]]></sid>
+    <group_name><![CDATA[De komende maand iemand voor 10.000 euro oplichten]]></group_name>
+    <group_order><![CDATA[7]]></group_order>
+    <description/>
+    <language><![CDATA[nl-informal]]></language>
+    <randomization_group><![CDATA[behavior]]></randomization_group>
+    <grelevance><![CDATA[informedConsent=="yes"]]></grelevance>
+   </row>
+   <row>
+    <gid><![CDATA[190]]></gid>
+    <sid><![CDATA[722821]]></sid>
+    <group_name><![CDATA[De komende maand een marathon uitlopen]]></group_name>
+    <group_order><![CDATA[8]]></group_order>
+    <description/>
+    <language><![CDATA[nl-informal]]></language>
+    <randomization_group><![CDATA[behavior]]></randomization_group>
+    <grelevance><![CDATA[informedConsent=="yes"]]></grelevance>
+   </row>
+   <row>
+    <gid><![CDATA[191]]></gid>
+    <sid><![CDATA[722821]]></sid>
+    <group_name><![CDATA[De komende maand vaak extra lang douchen]]></group_name>
+    <group_order><![CDATA[9]]></group_order>
+    <description/>
+    <language><![CDATA[nl-informal]]></language>
+    <randomization_group><![CDATA[behavior]]></randomization_group>
+    <grelevance><![CDATA[informedConsent=="yes"]]></grelevance>
+   </row>
+   <row>
+    <gid><![CDATA[192]]></gid>
+    <sid><![CDATA[722821]]></sid>
+    <group_name><![CDATA[De komende maand elke dag je tanden poetsen]]></group_name>
+    <group_order><![CDATA[10]]></group_order>
+    <description/>
+    <language><![CDATA[nl-informal]]></language>
+    <randomization_group><![CDATA[behavior]]></randomization_group>
+    <grelevance><![CDATA[informedConsent=="yes"]]></grelevance>
+   </row>
+   <row>
+    <gid><![CDATA[193]]></gid>
+    <sid><![CDATA[722821]]></sid>
+    <group_name><![CDATA[Oefenvraag: de komende minuten een vragenlijst invullen]]></group_name>
+    <group_order><![CDATA[2]]></group_order>
+    <description/>
+    <language><![CDATA[nl-informal]]></language>
+    <randomization_group/>
+    <grelevance><![CDATA[informedConsent == "yes"]]></grelevance>
+   </row>
+   <row>
+    <gid><![CDATA[195]]></gid>
+    <sid><![CDATA[722821]]></sid>
+    <group_name><![CDATA[Algemene informatie]]></group_name>
+    <group_order><![CDATA[11]]></group_order>
+    <description><![CDATA[Wij zouden het heel fijn vinden als je deze laatste vier vragen ook nog invult, maar als je sommige vragen liever overslaat, dan kan dat.]]></description>
+    <language><![CDATA[nl-informal]]></language>
+    <randomization_group/>
+    <grelevance><![CDATA[informedConsent=="yes"]]></grelevance>
+   </row>
+  </rows>
+ </groups>
+ <questions>
+  <fields>
+   <fieldname>qid</fieldname>
+   <fieldname>parent_qid</fieldname>
+   <fieldname>sid</fieldname>
+   <fieldname>gid</fieldname>
+   <fieldname>type</fieldname>
+   <fieldname>title</fieldname>
+   <fieldname>question</fieldname>
+   <fieldname>preg</fieldname>
+   <fieldname>help</fieldname>
+   <fieldname>other</fieldname>
+   <fieldname>mandatory</fieldname>
+   <fieldname>question_order</fieldname>
+   <fieldname>language</fieldname>
+   <fieldname>scale_id</fieldname>
+   <fieldname>same_default</fieldname>
+   <fieldname>relevance</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <qid><![CDATA[2743]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[184]]></gid>
+    <type><![CDATA[F]]></type>
+    <title><![CDATA[coffee]]></title>
+    <question><![CDATA[<span style="font-size:16px;">Deze vragen gaan over <strong>de komende maand helemaal geen koffie drinken</strong>.</span><br />
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2753]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[183]]></gid>
+    <type><![CDATA[L]]></type>
+    <title><![CDATA[informedConsent]]></title>
+    <question><![CDATA[<p>
+	Dit is een onderzoek naar acht soorten gedrag. Over elk gedrag worden zeven vragen gesteld om in kaart te brengen hoe u over het gedrag denkt. Het doel van het onderzoek is om te kijken of de redenen die mensen voor elk gedrag geven ongeveer hetzelfde zijn. Is het bijvoorbeeld voor elk gedrag even belangrijk hoe prettig mensen het vinden, of wat andere mensen doen?</p>
+<p>
+	Deze studie is zo opgezet dat alle data anoniem worden verzameld. Deze zijn dus nooit naar u te herleiden. Bovendien kunt u op elk moment stoppen. Als u nog vragen heeft kunt u die altijd stellen via <a href="mailto:ciberlite@a-bc.eu">ciberlite@a-bc.eu</a>. Alleen personen van 18 jaar en ouder mogen meedoen aan deze studie.</p>
+<p>
+	Door akkoord te gaan met deelname geeft u aan bovenstaande tekst te hebben gelezen en begrepen, geeft u aan dat u 18 jaar of ouder bent, en geeft u toestemming om uw data, die anoniem zullen worden verzameld, te gebruiken voor wetenschappelijk onderzoek.</p>
+]]></question>
+    <preg/>
+    <help><![CDATA[<span style="font-size:12px;">Dit is een wetenschappelijke studie die wordt gedaan door de Open Universiteit en de Universiteit Maastricht. De studie is goedgekeurd door de commissie Ethische Toetsing Onderzoek (cETO) van de Open Universiteit in het kader van onderzoekslijn 'Determinantenstudies' die op 11 mei 2017 met code U2017/03081/FRO is goedgekeurd. Het repository dat bij dit project hoort is <a href="https://osf.io/2uwxp">https://osf.io/2uwxp</a>.</span>]]></help>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2756]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[185]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[noConsentReason]]></title>
+    <question><![CDATA[Jammer dat u heeft besloten niet mee te doen met deze studie. Wij zijn heel benieuwd waarom: als u wilt kunt u de reden hiervoor hieronder aangeven.]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2757]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[186]]></gid>
+    <type><![CDATA[F]]></type>
+    <title><![CDATA[publicTransport]]></title>
+    <question><![CDATA[<span style="font-size:16px;">Deze vragen gaan over <strong>de komende maand vooral met het openbaar vervoer reizen</strong>.</span><br />
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2765]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[187]]></gid>
+    <type><![CDATA[F]]></type>
+    <title><![CDATA[runRedLight]]></title>
+    <question><![CDATA[<span style="font-size:16px;">Deze vragen gaan over <strong>de komende maand soms door rood licht fietsen</strong>.</span><br />
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2773]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[188]]></gid>
+    <type><![CDATA[F]]></type>
+    <title><![CDATA[wasteSeparation]]></title>
+    <question><![CDATA[<span style="font-size:16px;">Deze vragen gaan over <strong>de komende maand uw afval altijd nauwkeurig scheiden</strong>.</span><br />
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2781]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[189]]></gid>
+    <type><![CDATA[F]]></type>
+    <title><![CDATA[conSomebody]]></title>
+    <question><![CDATA[<span style="font-size:16px;">Deze vragen gaan over <strong>de komende maand iemand voor 10.000 euro oplichten</strong>.</span>]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2789]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[190]]></gid>
+    <type><![CDATA[F]]></type>
+    <title><![CDATA[marathon]]></title>
+    <question><![CDATA[<span style="font-size:16px;">Deze vragen gaan over <strong>de komende maand een marathon uitlopen</strong>.</span><br />
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2797]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[191]]></gid>
+    <type><![CDATA[F]]></type>
+    <title><![CDATA[longShower]]></title>
+    <question><![CDATA[<span style="font-size:16px;">Deze vragen gaan over <strong>de komende maand vaak extra lang douchen</strong>.</span><br />
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2805]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[192]]></gid>
+    <type><![CDATA[F]]></type>
+    <title><![CDATA[brushingTeeth]]></title>
+    <question><![CDATA[<span style="font-size:16px;">Deze vragen gaan over <strong>de komende maand elke dag je tanden poetsen</strong>.</span><br />
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2813]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[193]]></gid>
+    <type><![CDATA[F]]></type>
+    <title><![CDATA[practiceBehavior]]></title>
+    <question><![CDATA[<p>
+	<span style="font-size:16px;">Dit is een oefenvraag, om te wennen aan de vragen die we stellen.</span></p>
+<p>
+	<span style="font-size:16px;">Deze vragen gaan over <strong>de komende minuten een vragenlijst invullen</strong>.</span><br />
+	 </p>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2821]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[195]]></gid>
+    <type><![CDATA[S]]></type>
+    <title><![CDATA[age]]></title>
+    <question><![CDATA[Hoe oud bent u?]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2822]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[195]]></gid>
+    <type><![CDATA[L]]></type>
+    <title><![CDATA[sex]]></title>
+    <question><![CDATA[Wat is uw geslacht?]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[Y]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2823]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[195]]></gid>
+    <type><![CDATA[L]]></type>
+    <title><![CDATA[education]]></title>
+    <question><![CDATA[Wat is de hoogste opleiding die u heeft afgerond of nu volgt?]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[Y]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2824]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[195]]></gid>
+    <type><![CDATA[S]]></type>
+    <title><![CDATA[region]]></title>
+    <question><![CDATA[Wat zijn de eerste twee cijfers van uw postcode?]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[4]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+  </rows>
+ </questions>
+ <subquestions>
+  <fields>
+   <fieldname>qid</fieldname>
+   <fieldname>parent_qid</fieldname>
+   <fieldname>sid</fieldname>
+   <fieldname>gid</fieldname>
+   <fieldname>type</fieldname>
+   <fieldname>title</fieldname>
+   <fieldname>question</fieldname>
+   <fieldname>preg</fieldname>
+   <fieldname>help</fieldname>
+   <fieldname>other</fieldname>
+   <fieldname>mandatory</fieldname>
+   <fieldname>question_order</fieldname>
+   <fieldname>language</fieldname>
+   <fieldname>scale_id</fieldname>
+   <fieldname>same_default</fieldname>
+   <fieldname>relevance</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <qid><![CDATA[2744]]></qid>
+    <parent_qid><![CDATA[2743]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[184]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attInstrumental]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende maand helemaal geen koffie drinken ...</div><div class="scaleleft width75">Slecht</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2745]]></qid>
+    <parent_qid><![CDATA[2743]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[184]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attExperiential]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende maand helemaal geen koffie drinken ...</div><div class="scaleleft width75">Onprettig</div> | <div class="scaleright width75">Prettig</div>]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2747]]></qid>
+    <parent_qid><![CDATA[2743]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[184]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnInjunctive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Als ik de komende maand helemaal geen koffie drink, dan keuren de meeste mensen die belangrijk voor mij zijn dat ...</div><div class="scaleleft width75">Af</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[4]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2748]]></qid>
+    <parent_qid><![CDATA[2743]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[184]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnDescriptive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Hoeveel van de mensen die zijn zoals jij drinken de komende maand helemaal geen koffie?</div><div class="scaleleft width75">Niemand</div> | <div class="scaleright width75">Iedereen</div>]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[5]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2749]]></qid>
+    <parent_qid><![CDATA[2743]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[184]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcCapacity]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Ik heb er vertrouwen in dat als ik dat wil, ik de komende maand helemaal geen koffie kan drinken.</div><div class="scaleleft width75">Helemaal geen vertrouwen</div> | <div class="scaleright width75">Heel veel vertrouwen</div>]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[6]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2750]]></qid>
+    <parent_qid><![CDATA[2743]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[184]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcControl]]></title>
+    <question><![CDATA[<div class="scaletext">Of ik de komende maand helemaal geen koffie drink, bepaal ik ...</div><div class="scaleleft width75">Helemaal niet zelf</div> | <div class="scaleright width75">Helemaal zelf</div>]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[7]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2751]]></qid>
+    <parent_qid><![CDATA[2743]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[184]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[intention]]></title>
+    <question><![CDATA[<div class="scaletext">Ik ben van plan om de komende maand helemaal geen koffie te drinken.</div><div class="scaleleft width75">Absoluut niet</div> | <div class="scaleright width75">Absoluut wel</div>]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2758]]></qid>
+    <parent_qid><![CDATA[2757]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[186]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[intention]]></title>
+    <question><![CDATA[<div class="scaletext">Ik ben van plan om de komende maand vooral met het openbaar vervoer te reizen.</div><div class="scaleleft width75">Absoluut niet</div> | <div class="scaleright width75">Absoluut wel</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2759]]></qid>
+    <parent_qid><![CDATA[2757]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[186]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attInstrumental]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende maand vooral met het openbaar vervoer reizen ...</div><div class="scaleleft width75">Slecht</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2760]]></qid>
+    <parent_qid><![CDATA[2757]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[186]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attExperiential]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende maand vooral met het openbaar vervoer reizen ...</div><div class="scaleleft width75">Onprettig</div> | <div class="scaleright width75">Prettig</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2761]]></qid>
+    <parent_qid><![CDATA[2757]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[186]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnInjunctive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Als ik de komende maand vooral met het openbaar vervoer zou reizen, dan keuren de meeste mensen die belangrijk voor mij zijn dat ...</div><div class="scaleleft width75">Af</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[4]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2762]]></qid>
+    <parent_qid><![CDATA[2757]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[186]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnDescriptive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Hoeveel van de mensen die zijn zoals jij reizen de komende maand vooral met het openbaar vervoer?</div><div class="scaleleft width75">Niemand</div> | <div class="scaleright width75">Iedereen</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[5]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2763]]></qid>
+    <parent_qid><![CDATA[2757]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[186]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcCapacity]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Ik heb er vertrouwen in dat als ik dat wil, ik de komende maand vooral met het openbaar vervoer kan reizen.</div><div class="scaleleft width75">Helemaal geen vertrouwen</div> | <div class="scaleright width75">Heel veel vertrouwen</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[6]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2764]]></qid>
+    <parent_qid><![CDATA[2757]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[186]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcControl]]></title>
+    <question><![CDATA[<div class="scaletext">Of ik de komende maand vooral met het openbaar vervoer reis, bepaal ik ...</div><div class="scaleleft width75">Helemaal niet zelf</div> | <div class="scaleright width75">Helemaal zelf</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[7]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2766]]></qid>
+    <parent_qid><![CDATA[2765]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[187]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[intention]]></title>
+    <question><![CDATA[<div class="scaletext">Ik ben van plan om de komende maand soms door rood licht te fietsen.</div><div class="scaleleft width75">Absoluut niet</div> | <div class="scaleright width75">Absoluut wel</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2767]]></qid>
+    <parent_qid><![CDATA[2765]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[187]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attInstrumental]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende maand soms door rood licht fietsen ...</div><div class="scaleleft width75">Slecht</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2768]]></qid>
+    <parent_qid><![CDATA[2765]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[187]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attExperiential]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende maand soms door rood licht fietsen ...</div><div class="scaleleft width75">Onprettig</div> | <div class="scaleright width75">Prettig</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2769]]></qid>
+    <parent_qid><![CDATA[2765]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[187]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnInjunctive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Als ik de komende maand soms door rood licht fiets, dan keuren de meeste mensen die belangrijk voor mij zijn dat ...</div><div class="scaleleft width75">Af</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[4]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2770]]></qid>
+    <parent_qid><![CDATA[2765]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[187]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnDescriptive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Hoeveel van de mensen die zijn zoals jij fietsen de komende maand soms door rood licht?</div><div class="scaleleft width75">Niemand</div> | <div class="scaleright width75">Iedereen</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[5]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2771]]></qid>
+    <parent_qid><![CDATA[2765]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[187]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcCapacity]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Ik heb er vertrouwen in dat als ik dat wil, ik de komende maand soms door rood licht kan fietsen.</div><div class="scaleleft width75">Helemaal geen vertrouwen</div> | <div class="scaleright width75">Heel veel vertrouwen</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[6]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2772]]></qid>
+    <parent_qid><![CDATA[2765]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[187]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcControl]]></title>
+    <question><![CDATA[<div class="scaletext">Of ik de komende maand soms door rood licht fiets, bepaal ik ...</div><div class="scaleleft width75">Helemaal niet zelf</div> | <div class="scaleright width75">Helemaal zelf</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[7]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2774]]></qid>
+    <parent_qid><![CDATA[2773]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[188]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[intention]]></title>
+    <question><![CDATA[<div class="scaletext">Ik ben van plan om de komende maand mijn afval altijd nauwkeurig te scheiden.</div><div class="scaleleft width75">Absoluut niet</div> | <div class="scaleright width75">Absoluut wel</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2775]]></qid>
+    <parent_qid><![CDATA[2773]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[188]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attInstrumental]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende maand mijn afval altijd nauwkeurig scheiden ...</div><div class="scaleleft width75">Slecht</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2776]]></qid>
+    <parent_qid><![CDATA[2773]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[188]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attExperiential]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende maand mijn afval altijd nauwkeurig scheiden ...</div><div class="scaleleft width75">Onprettig</div> | <div class="scaleright width75">Prettig</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2777]]></qid>
+    <parent_qid><![CDATA[2773]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[188]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnInjunctive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Als ik de komende maand mijn afval altijd nauwkeurig scheid, dan keuren de meeste mensen die belangrijk voor mij zijn dat ...</div><div class="scaleleft width75">Af</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[4]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2778]]></qid>
+    <parent_qid><![CDATA[2773]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[188]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnDescriptive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Hoeveel van de mensen die zijn zoals jij scheiden de komende maand hun afval altijd nauwkeurig?</div><div class="scaleleft width75">Niemand</div> | <div class="scaleright width75">Iedereen</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[5]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2779]]></qid>
+    <parent_qid><![CDATA[2773]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[188]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcCapacity]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Ik heb er vertrouwen in dat als ik dat wil, ik de komende maand mijn afval altijd nauwkeurig kan scheiden.</div><div class="scaleleft width75">Helemaal geen vertrouwen</div> | <div class="scaleright width75">Heel veel vertrouwen</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[6]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2780]]></qid>
+    <parent_qid><![CDATA[2773]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[188]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcControl]]></title>
+    <question><![CDATA[<div class="scaletext">Of ik de komende maand mijn afval altijd nauwkeurig scheid, bepaal ik ...</div><div class="scaleleft width75">Helemaal niet zelf</div> | <div class="scaleright width75">Helemaal zelf</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[7]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2782]]></qid>
+    <parent_qid><![CDATA[2781]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[189]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[intention]]></title>
+    <question><![CDATA[<div class="scaletext">Ik ben van plan om de komende maand iemand voor 10.000 euro op te lichten.</div><div class="scaleleft width75">Absoluut niet</div> | <div class="scaleright width75">Absoluut wel</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2783]]></qid>
+    <parent_qid><![CDATA[2781]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[189]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attInstrumental]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende maand iemand voor 10.000 euro oplichten ...</div><div class="scaleleft width75">Slecht</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2784]]></qid>
+    <parent_qid><![CDATA[2781]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[189]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attExperiential]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende maand iemand voor 10.000 euro oplichten ...</div><div class="scaleleft width75">Onprettig</div> | <div class="scaleright width75">Prettig</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2785]]></qid>
+    <parent_qid><![CDATA[2781]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[189]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnInjunctive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Als ik de komende maand iemand voor 10.000 euro oplicht, dan keuren de meeste mensen die belangrijk voor mij zijn dat ...</div><div class="scaleleft width75">Af</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[4]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2786]]></qid>
+    <parent_qid><![CDATA[2781]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[189]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnDescriptive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Hoeveel van de mensen die zijn zoals jij lichten de komende maand iemand voor 10.000 euro op?</div><div class="scaleleft width75">Niemand</div> | <div class="scaleright width75">Iedereen</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[5]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2787]]></qid>
+    <parent_qid><![CDATA[2781]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[189]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcCapacity]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Ik heb er vertrouwen in dat als ik dat wil, ik de komende maand iemand voor 10.000 euro kan oplichten.</div><div class="scaleleft width75">Helemaal geen vertrouwen</div> | <div class="scaleright width75">Heel veel vertrouwen</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[6]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2788]]></qid>
+    <parent_qid><![CDATA[2781]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[189]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcControl]]></title>
+    <question><![CDATA[<div class="scaletext">Of ik de komende maand iemand voor 10.000 euro oplicht, bepaal ik ...</div><div class="scaleleft width75">Helemaal niet zelf</div> | <div class="scaleright width75">Helemaal zelf</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[7]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2790]]></qid>
+    <parent_qid><![CDATA[2789]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[190]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[intention]]></title>
+    <question><![CDATA[<div class="scaletext">Ik ben van plan om de komende maand een marathon uit te lopen.</div><div class="scaleleft width75">Absoluut niet</div> | <div class="scaleright width75">Absoluut wel</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2791]]></qid>
+    <parent_qid><![CDATA[2789]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[190]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attInstrumental]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende maand een marathon uitlopen ...</div><div class="scaleleft width75">Slecht</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2792]]></qid>
+    <parent_qid><![CDATA[2789]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[190]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attExperiential]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende maand een marathon uitlopen ...</div><div class="scaleleft width75">Onprettig</div> | <div class="scaleright width75">Prettig</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2793]]></qid>
+    <parent_qid><![CDATA[2789]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[190]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnInjunctive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Als ik de komende maand een marathon uitloop, dan keuren de meeste mensen die belangrijk voor mij zijn dat ...</div><div class="scaleleft width75">Af</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[4]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2794]]></qid>
+    <parent_qid><![CDATA[2789]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[190]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnDescriptive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Hoeveel van de mensen die zijn zoals jij lopen de komende maand een marathon uit?</div><div class="scaleleft width75">Niemand</div> | <div class="scaleright width75">Iedereen</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[5]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2795]]></qid>
+    <parent_qid><![CDATA[2789]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[190]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcCapacity]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Ik heb er vertrouwen in dat als ik dat wil, ik de komende maand een marathon kan uitlopen.</div><div class="scaleleft width75">Helemaal geen vertrouwen</div> | <div class="scaleright width75">Heel veel vertrouwen</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[6]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2796]]></qid>
+    <parent_qid><![CDATA[2789]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[190]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcControl]]></title>
+    <question><![CDATA[<div class="scaletext">Of ik de komende maand een marathon uitloop, bepaal ik ...</div><div class="scaleleft width75">Helemaal niet zelf</div> | <div class="scaleright width75">Helemaal zelf</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[7]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2798]]></qid>
+    <parent_qid><![CDATA[2797]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[191]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[intention]]></title>
+    <question><![CDATA[<div class="scaletext">Ik ben van plan om de komende maand vaak extra lang te douchen.</div><div class="scaleleft width75">Absoluut niet</div> | <div class="scaleright width75">Absoluut wel</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2799]]></qid>
+    <parent_qid><![CDATA[2797]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[191]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attInstrumental]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende maand vaak extra lang douchen ...</div><div class="scaleleft width75">Slecht</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2800]]></qid>
+    <parent_qid><![CDATA[2797]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[191]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attExperiential]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende maand vaak extra lang douchen ...</div><div class="scaleleft width75">Onprettig</div> | <div class="scaleright width75">Prettig</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2801]]></qid>
+    <parent_qid><![CDATA[2797]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[191]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnInjunctive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Als ik de komende maand vaak extra lang douche, dan keuren de meeste mensen die belangrijk voor mij zijn dat ...</div><div class="scaleleft width75">Af</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[4]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2802]]></qid>
+    <parent_qid><![CDATA[2797]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[191]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnDescriptive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Hoeveel van de mensen die zijn zoals jij douchen de komende maand vaak extra lang?</div><div class="scaleleft width75">Niemand</div> | <div class="scaleright width75">Iedereen</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[5]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2803]]></qid>
+    <parent_qid><![CDATA[2797]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[191]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcCapacity]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Ik heb er vertrouwen in dat als ik dat wil, ik de komende maand vaak extra lang kan douchen.</div><div class="scaleleft width75">Helemaal geen vertrouwen</div> | <div class="scaleright width75">Heel veel vertrouwen</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[6]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2804]]></qid>
+    <parent_qid><![CDATA[2797]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[191]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcControl]]></title>
+    <question><![CDATA[<div class="scaletext">Of ik de komende maand vaak extra lang douche, bepaal ik ...</div><div class="scaleleft width75">Helemaal niet zelf</div> | <div class="scaleright width75">Helemaal zelf</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[7]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2806]]></qid>
+    <parent_qid><![CDATA[2805]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[192]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[intention]]></title>
+    <question><![CDATA[<div class="scaletext">Ik ben van plan om de komende maand elke dag mijn tanden te poetsen.</div><div class="scaleleft width75">Absoluut niet</div> | <div class="scaleright width75">Absoluut wel</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2807]]></qid>
+    <parent_qid><![CDATA[2805]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[192]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attInstrumental]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende maand elke dag mijn tanden poetsen ...</div><div class="scaleleft width75">Slecht</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2808]]></qid>
+    <parent_qid><![CDATA[2805]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[192]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attExperiential]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende maand elke dag mijn tanden poetsen ...</div><div class="scaleleft width75">Onprettig</div> | <div class="scaleright width75">Prettig</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2809]]></qid>
+    <parent_qid><![CDATA[2805]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[192]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnInjunctive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Als ik de komende maand elke dag mijn tanden poets, dan keuren de meeste mensen die belangrijk voor mij zijn dat ...</div><div class="scaleleft width75">Af</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[4]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2810]]></qid>
+    <parent_qid><![CDATA[2805]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[192]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnDescriptive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Hoeveel van de mensen die zijn zoals jij poetsen de komende maand elke dag hun tanden?</div><div class="scaleleft width75">Niemand</div> | <div class="scaleright width75">Iedereen</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[5]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2811]]></qid>
+    <parent_qid><![CDATA[2805]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[192]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcCapacity]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Ik heb er vertrouwen in dat als ik dat wil, ik de komende maand elke dag mijn tanden kan poetsen.</div><div class="scaleleft width75">Helemaal geen vertrouwen</div> | <div class="scaleright width75">Heel veel vertrouwen</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[6]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2812]]></qid>
+    <parent_qid><![CDATA[2805]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[192]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcControl]]></title>
+    <question><![CDATA[<div class="scaletext">Of ik de komende maand elke dag mijn tanden poets, bepaal ik ...</div><div class="scaleleft width75">Helemaal niet zelf</div> | <div class="scaleright width75">Helemaal zelf</div>]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[7]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2814]]></qid>
+    <parent_qid><![CDATA[2813]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[193]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attInstrumental]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende minuten een vragenlijst invullen ...</div><div class="scaleleft width75">Slecht</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2815]]></qid>
+    <parent_qid><![CDATA[2813]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[193]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[attExperiential]]></title>
+    <question><![CDATA[<div class="scaletext">Voor mijzelf is de komende minuten een vragenlijst invullen ...</div><div class="scaleleft width75">Onprettig</div> | <div class="scaleright width75">Prettig</div>]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2816]]></qid>
+    <parent_qid><![CDATA[2813]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[193]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnInjunctive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Als ik de komende minuten een vragenlijst invul, dan keuren de meeste mensen die belangrijk voor mij zijn dat ...</div><div class="scaleleft width75">Af</div> | <div class="scaleright width75">Goed</div>]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[4]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2817]]></qid>
+    <parent_qid><![CDATA[2813]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[193]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pnDescriptive]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Hoeveel van de mensen die zijn zoals jij vullen de komende minuten een vragenlijst in?</div><div class="scaleleft width75">Niemand</div> | <div class="scaleright width75">Iedereen</div>]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[5]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2818]]></qid>
+    <parent_qid><![CDATA[2813]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[193]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcCapacity]]></title>
+    <question><![CDATA[<div class="scaletext" style="height:100%">Ik heb er vertrouwen in dat als ik dat wil, ik de komende minuten een vragenlijst in kan vullen.</div><div class="scaleleft width75">Helemaal geen vertrouwen</div> | <div class="scaleright width75">Heel veel vertrouwen</div>]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[6]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2819]]></qid>
+    <parent_qid><![CDATA[2813]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[193]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[pbcControl]]></title>
+    <question><![CDATA[<div class="scaletext">Of ik de komende minuten een vragenlijst invul, bepaal ik ...</div><div class="scaleleft width75">Helemaal niet zelf</div> | <div class="scaleright width75">Helemaal zelf</div>]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[7]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[2820]]></qid>
+    <parent_qid><![CDATA[2813]]></parent_qid>
+    <sid><![CDATA[722821]]></sid>
+    <gid><![CDATA[193]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[intention]]></title>
+    <question><![CDATA[<div class="scaletext">Ik ben van plan om de komende minuten een vragenlijst in te vullen.</div><div class="scaleleft width75">Absoluut niet</div> | <div class="scaleright width75">Absoluut wel</div>]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[nl-informal]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+  </rows>
+ </subquestions>
+ <question_attributes>
+  <fields>
+   <fieldname>qid</fieldname>
+   <fieldname>attribute</fieldname>
+   <fieldname>value</fieldname>
+   <fieldname>language</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <qid><![CDATA[2743]]></qid>
+    <attribute><![CDATA[answer_width]]></attribute>
+    <value><![CDATA[80]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[2757]]></qid>
+    <attribute><![CDATA[answer_width]]></attribute>
+    <value><![CDATA[80]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[2765]]></qid>
+    <attribute><![CDATA[answer_width]]></attribute>
+    <value><![CDATA[80]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[2773]]></qid>
+    <attribute><![CDATA[answer_width]]></attribute>
+    <value><![CDATA[80]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[2781]]></qid>
+    <attribute><![CDATA[answer_width]]></attribute>
+    <value><![CDATA[80]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[2789]]></qid>
+    <attribute><![CDATA[answer_width]]></attribute>
+    <value><![CDATA[80]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[2797]]></qid>
+    <attribute><![CDATA[answer_width]]></attribute>
+    <value><![CDATA[80]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[2805]]></qid>
+    <attribute><![CDATA[answer_width]]></attribute>
+    <value><![CDATA[80]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[2813]]></qid>
+    <attribute><![CDATA[answer_width]]></attribute>
+    <value><![CDATA[80]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[2821]]></qid>
+    <attribute><![CDATA[maximum_chars]]></attribute>
+    <value><![CDATA[3]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[2821]]></qid>
+    <attribute><![CDATA[numbers_only]]></attribute>
+    <value><![CDATA[1]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[2821]]></qid>
+    <attribute><![CDATA[prefix]]></attribute>
+    <value><![CDATA[Ik ben&nbsp;&nbsp;]]></value>
+    <language><![CDATA[nl-informal]]></language>
+   </row>
+   <row>
+    <qid><![CDATA[2821]]></qid>
+    <attribute><![CDATA[suffix]]></attribute>
+    <value><![CDATA[&nbsp;&nbsp;jaar.]]></value>
+    <language><![CDATA[nl-informal]]></language>
+   </row>
+   <row>
+    <qid><![CDATA[2821]]></qid>
+    <attribute><![CDATA[text_input_width]]></attribute>
+    <value><![CDATA[4]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[2822]]></qid>
+    <attribute><![CDATA[other_replace_text]]></attribute>
+    <value><![CDATA[Anders, namelijk:  ]]></value>
+    <language><![CDATA[nl-informal]]></language>
+   </row>
+   <row>
+    <qid><![CDATA[2823]]></qid>
+    <attribute><![CDATA[other_replace_text]]></attribute>
+    <value><![CDATA[Anders, namelijk:  ]]></value>
+    <language><![CDATA[nl-informal]]></language>
+   </row>
+   <row>
+    <qid><![CDATA[2824]]></qid>
+    <attribute><![CDATA[maximum_chars]]></attribute>
+    <value><![CDATA[2]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[2824]]></qid>
+    <attribute><![CDATA[numbers_only]]></attribute>
+    <value><![CDATA[1]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[2824]]></qid>
+    <attribute><![CDATA[prefix]]></attribute>
+    <value><![CDATA[De eerste twee cijfers van mijn postcode zijn:&nbsp;&nbsp;]]></value>
+    <language><![CDATA[nl-informal]]></language>
+   </row>
+   <row>
+    <qid><![CDATA[2824]]></qid>
+    <attribute><![CDATA[text_input_width]]></attribute>
+    <value><![CDATA[2]]></value>
+   </row>
+  </rows>
+ </question_attributes>
+ <surveys>
+  <fields>
+   <fieldname>sid</fieldname>
+   <fieldname>admin</fieldname>
+   <fieldname>expires</fieldname>
+   <fieldname>startdate</fieldname>
+   <fieldname>adminemail</fieldname>
+   <fieldname>anonymized</fieldname>
+   <fieldname>faxto</fieldname>
+   <fieldname>format</fieldname>
+   <fieldname>savetimings</fieldname>
+   <fieldname>template</fieldname>
+   <fieldname>language</fieldname>
+   <fieldname>additional_languages</fieldname>
+   <fieldname>datestamp</fieldname>
+   <fieldname>usecookie</fieldname>
+   <fieldname>allowregister</fieldname>
+   <fieldname>allowsave</fieldname>
+   <fieldname>autonumber_start</fieldname>
+   <fieldname>autoredirect</fieldname>
+   <fieldname>allowprev</fieldname>
+   <fieldname>printanswers</fieldname>
+   <fieldname>ipaddr</fieldname>
+   <fieldname>refurl</fieldname>
+   <fieldname>publicstatistics</fieldname>
+   <fieldname>publicgraphs</fieldname>
+   <fieldname>listpublic</fieldname>
+   <fieldname>htmlemail</fieldname>
+   <fieldname>sendconfirmation</fieldname>
+   <fieldname>tokenanswerspersistence</fieldname>
+   <fieldname>assessments</fieldname>
+   <fieldname>usecaptcha</fieldname>
+   <fieldname>usetokens</fieldname>
+   <fieldname>bounce_email</fieldname>
+   <fieldname>attributedescriptions</fieldname>
+   <fieldname>emailresponseto</fieldname>
+   <fieldname>emailnotificationto</fieldname>
+   <fieldname>tokenlength</fieldname>
+   <fieldname>showxquestions</fieldname>
+   <fieldname>showgroupinfo</fieldname>
+   <fieldname>shownoanswer</fieldname>
+   <fieldname>showqnumcode</fieldname>
+   <fieldname>bouncetime</fieldname>
+   <fieldname>bounceprocessing</fieldname>
+   <fieldname>bounceaccounttype</fieldname>
+   <fieldname>bounceaccounthost</fieldname>
+   <fieldname>bounceaccountpass</fieldname>
+   <fieldname>bounceaccountencryption</fieldname>
+   <fieldname>bounceaccountuser</fieldname>
+   <fieldname>showwelcome</fieldname>
+   <fieldname>showprogress</fieldname>
+   <fieldname>questionindex</fieldname>
+   <fieldname>navigationdelay</fieldname>
+   <fieldname>nokeyboard</fieldname>
+   <fieldname>alloweditaftercompletion</fieldname>
+   <fieldname>googleanalyticsstyle</fieldname>
+   <fieldname>googleanalyticsapikey</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <sid><![CDATA[722821]]></sid>
+    <admin><![CDATA[Gjalt-Jorn Peters & Rik Crutzen (Academy of Behavi]]></admin>
+    <adminemail><![CDATA[ciberlite@a-bc.eu]]></adminemail>
+    <anonymized><![CDATA[Y]]></anonymized>
+    <faxto/>
+    <format><![CDATA[G]]></format>
+    <savetimings><![CDATA[N]]></savetimings>
+    <template><![CDATA[greater_good_template]]></template>
+    <language><![CDATA[nl-informal]]></language>
+    <additional_languages/>
+    <datestamp><![CDATA[N]]></datestamp>
+    <usecookie><![CDATA[N]]></usecookie>
+    <allowregister><![CDATA[N]]></allowregister>
+    <allowsave><![CDATA[Y]]></allowsave>
+    <autonumber_start><![CDATA[14]]></autonumber_start>
+    <autoredirect><![CDATA[N]]></autoredirect>
+    <allowprev><![CDATA[Y]]></allowprev>
+    <printanswers><![CDATA[N]]></printanswers>
+    <ipaddr><![CDATA[N]]></ipaddr>
+    <refurl><![CDATA[N]]></refurl>
+    <publicstatistics><![CDATA[N]]></publicstatistics>
+    <publicgraphs><![CDATA[N]]></publicgraphs>
+    <listpublic><![CDATA[N]]></listpublic>
+    <htmlemail><![CDATA[N]]></htmlemail>
+    <sendconfirmation><![CDATA[Y]]></sendconfirmation>
+    <tokenanswerspersistence><![CDATA[N]]></tokenanswerspersistence>
+    <assessments><![CDATA[N]]></assessments>
+    <usecaptcha><![CDATA[N]]></usecaptcha>
+    <usetokens><![CDATA[N]]></usetokens>
+    <bounce_email><![CDATA[ciberlite@a-bc.eu]]></bounce_email>
+    <emailresponseto/>
+    <emailnotificationto/>
+    <tokenlength><![CDATA[15]]></tokenlength>
+    <showxquestions><![CDATA[N]]></showxquestions>
+    <showgroupinfo><![CDATA[X]]></showgroupinfo>
+    <shownoanswer><![CDATA[N]]></shownoanswer>
+    <showqnumcode><![CDATA[X]]></showqnumcode>
+    <bounceprocessing><![CDATA[N]]></bounceprocessing>
+    <showwelcome><![CDATA[N]]></showwelcome>
+    <showprogress><![CDATA[Y]]></showprogress>
+    <questionindex><![CDATA[0]]></questionindex>
+    <navigationdelay><![CDATA[0]]></navigationdelay>
+    <nokeyboard><![CDATA[N]]></nokeyboard>
+    <alloweditaftercompletion><![CDATA[N]]></alloweditaftercompletion>
+    <googleanalyticsstyle><![CDATA[0]]></googleanalyticsstyle>
+    <googleanalyticsapikey/>
+   </row>
+  </rows>
+ </surveys>
+ <surveys_languagesettings>
+  <fields>
+   <fieldname>surveyls_survey_id</fieldname>
+   <fieldname>surveyls_language</fieldname>
+   <fieldname>surveyls_title</fieldname>
+   <fieldname>surveyls_description</fieldname>
+   <fieldname>surveyls_welcometext</fieldname>
+   <fieldname>surveyls_endtext</fieldname>
+   <fieldname>surveyls_url</fieldname>
+   <fieldname>surveyls_urldescription</fieldname>
+   <fieldname>surveyls_email_invite_subj</fieldname>
+   <fieldname>surveyls_email_invite</fieldname>
+   <fieldname>surveyls_email_remind_subj</fieldname>
+   <fieldname>surveyls_email_remind</fieldname>
+   <fieldname>surveyls_email_register_subj</fieldname>
+   <fieldname>surveyls_email_register</fieldname>
+   <fieldname>surveyls_email_confirm_subj</fieldname>
+   <fieldname>surveyls_email_confirm</fieldname>
+   <fieldname>surveyls_dateformat</fieldname>
+   <fieldname>surveyls_attributecaptions</fieldname>
+   <fieldname>email_admin_notification_subj</fieldname>
+   <fieldname>email_admin_notification</fieldname>
+   <fieldname>email_admin_responses_subj</fieldname>
+   <fieldname>email_admin_responses</fieldname>
+   <fieldname>surveyls_numberformat</fieldname>
+   <fieldname>attachments</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <surveyls_survey_id><![CDATA[722821]]></surveyls_survey_id>
+    <surveyls_language><![CDATA[nl-informal]]></surveyls_language>
+    <surveyls_title><![CDATA[Gedrag in kaart]]></surveyls_title>
+    <surveyls_description><![CDATA[<br />
+<script>
+    $( document ).ready(function() {
+
+      // Remove the empty line that LS sometimes adds after questions
+      $("div.survey-question-text > br").remove();
+
+      // Center the survey title
+      $("div#surveydata > h1").css("text-align", "center");
+
+      // Remove the 'obligatory question' asterisk
+      $(".asterisk").css("display", "none");
+
+      // Remove the 'stop and clear all answers' button
+      $("div#clearallbox").css("display", "none");
+
+      // Remove the question help (e.g. "only enter numbers here")
+      $("div.questiontext .questionhelp").css("display", "none");
+
+      // Remove the language picker
+      $("div.lang-wrapper").css("display", "none");
+
+      // Remove the privacy note
+      $("div#privacynote").css("display", "none");
+
+      // Remove question help "i" icon
+      $("div.questionhelp img").css("display", "none");
+
+    });
+  </script>]]></surveyls_description>
+    <surveyls_welcometext/>
+    <surveyls_endtext><![CDATA[<p>
+	Heel erg bedankt voor het invullen van deze vragenlijst!</p>
+<p>
+	Zoals we in het begin uitlegden is het doel van deze studie om voor verschillende gedragingen in kaart te brengen waarom mensen deze uitvoeren. Binnen gezondheidspsychologisch onderzoek wordt vaak veronderstelt dat sommige gedragingen sociaal wenselijker zijn dan anderen, of als makkelijker worden gezien dan anderen. Dit is echter nooit grondig onderzocht. Deze studie is met dat doel opgezet.</p>
+<p>
+	Een tweede doel is dat we een aanpak, CIBERlite, willen ontwikkelen om preventie-organisaties te ondersteunen bij het in kaart brengen van de zogenaamde determinanten van gedrag. Hierbij gebruiken we de 'Reasoned Action Approach', een van de meest gebruikte theorieën om beredeneerd gedrag te onderzoeken.</p>
+<p>
+	Op basis van deze theorie hebben we een systeem ontwikkeld om steeds met twee vragen elk van de drie belangrijkste voorspellers van gedrag (attitude, waargenomen norm, en waargenomen gedragscontrole) te meten.</p>
+<p>
+	Deze studie is gepreregistreerd: we hebben, voordat de dataverzameling startte, onze plannen vastgelegd. Deze preregistratie kan worden gevonden via het Open Science Framework repository op <a href="https://osf.io/2uwxp">https://osf.io/2uwxp</a>.</p>
+<p>
+	Als u nog vragen heeft of meer informatie wil, kunt u altijd contact opnemen met de onderzoekers via <a href="mailto:ciberlite@a-bc.eu">ciberlite@a-bc.eu</a>.</p>
+]]></surveyls_endtext>
+    <surveyls_url/>
+    <surveyls_urldescription/>
+    <surveyls_email_invite_subj><![CDATA[Uitnodiging om deel te nemen aan een vragenlijst]]></surveyls_email_invite_subj>
+    <surveyls_email_invite><![CDATA[Beste {FIRSTNAME},
+
+Je wordt uitgenodigd om deel te nemen aan een onderzoek.
+
+Het onderzoek is genaamd:
+'{SURVEYNAME}'
+
+'{SURVEYDESCRIPTION}'
+
+Om aan het onderzoek deel te nemen moet je op onderstaande link klikken.
+
+Met vriendelijke groeten,
+
+{ADMINNAME} ({ADMINEMAIL})
+
+----------------------------------------------
+Klik op {SURVEYURL}
+ om aan het onderzoek deel te nemen.
+
+Als u deze vragenlijst niet wilt invullen en ook geen nieuwe uitnodigingen wilt ontvangen, klik dan a.u.b. op de volgende link: {OPTOUTURL}
+
+Als u bent uitgesloten, maar toch deze vragenlijst wilt invullen en ook nieuwe uitnodigingen wilt ontvangen, klik dan op de volgende link:
+{OPTINURL}]]></surveyls_email_invite>
+    <surveyls_email_remind_subj><![CDATA[Herinnering om deel te nemen aan een vragenlijst]]></surveyls_email_remind_subj>
+    <surveyls_email_remind><![CDATA[Beste {FIRSTNAME},
+
+Recent bent je uitgenodigd om aan een onderzoek deel te nemen.
+
+We hebben geconstateerd dat je nog niet aan het onderzoek hebt deelgenomen en willen je er bij deze aan herinneren dat het onderzoek nog loopt en dat je, als je dat wilt, nog kan deelnemen. 
+
+Het onderzoek is getiteld: 
+''{SURVEYNAME}"
+
+''{SURVEYDESCRIPTION}"
+
+Om deel te nemen klik je op onderstaande link. 
+
+Hoogachtend,
+
+{ADMINNAME} ({ADMINEMAIL})
+
+----------------------------------------------
+Klik op:
+{SURVEYURL} om aan het onderzoek deel te nemen.
+
+Als u deze vragenlijst niet wilt invullen en ook geen nieuwe uitnodigingen wilt ontvangen, klik dan a.u.b. op de volgende link: {OPTOUTURL}]]></surveyls_email_remind>
+    <surveyls_email_register_subj><![CDATA[Bevestiging registratie vragenlijst]]></surveyls_email_register_subj>
+    <surveyls_email_register><![CDATA[Beste {FIRSTNAME},
+
+Je, of iemand die je e-mailadres gebruikt, heeft zich aangemeld voor deelname aan het online onderzoek {SURVEYNAME}.
+
+Klik op onderstaande link om aan het onderzoek mee te doen:
+
+{SURVEYURL}
+
+Als je vragen hebt over de vragenlijst, of als je je niet hebt aangemeld voor deelname en meent dat je deze e-mail ten onrechte hebt ontvangen, kun je contact opnemen met {ADMINNAME} via {ADMINEMAIL}.]]></surveyls_email_register>
+    <surveyls_email_confirm_subj><![CDATA[Bevestiging van je deelname aan de vragenlijst]]></surveyls_email_confirm_subj>
+    <surveyls_email_confirm><![CDATA[Beste {FIRSTNAME},
+
+Dit e-mail bericht bevestigt dat je de vragenlijst {SURVEYNAME} hebt ingevuld en dat je antwoorden zijn verwerkt. Bedankt voor de deelname.
+
+Als je vragen hebt over deze e-mail, neem dan contact op met de beheerder {ADMINNAME} via {ADMINEMAIL}.
+
+Met vriendelijke groeten,
+
+{ADMINNAME}]]></surveyls_email_confirm>
+    <surveyls_dateformat><![CDATA[2]]></surveyls_dateformat>
+    <email_admin_notification_subj><![CDATA[Respons vragenlijst {SURVEYNAME}]]></email_admin_notification_subj>
+    <email_admin_notification><![CDATA[Hallo,
+
+Er is een nieuwe reactie op je vragenlijst '{SURVEYNAME}'.
+
+Om de vragenlijst te bekijken:
+{RELOADURL}
+
+Om de reactie te bekijken:
+{VIEWRESPONSEURL}
+
+Om de nieuwe reactie te wijzigen:
+{EDITRESPONSEURL}
+
+Om de statistieken te bekijken:
+{STATISTICSURL}]]></email_admin_notification>
+    <email_admin_responses_subj><![CDATA[Respons vragenlijst {SURVEYNAME} met resultaten]]></email_admin_responses_subj>
+    <email_admin_responses><![CDATA[Hallo,
+
+Er is een nieuwe reactie op je vragenlijst  '{SURVEYNAME}'.
+
+Om de vragenlijst te bekijken:
+{RELOADURL}
+
+Om de nieuwe reactie te bekijken:
+{VIEWRESPONSEURL}
+
+Om de nieuwe reactie te wijzigen:
+{EDITRESPONSEURL}
+
+Om de statistieken te bekijken:
+{STATISTICSURL}
+
+
+De deelnemer geeft de volgende antwoorden gegeven:
+{ANSWERTABLE}]]></email_admin_responses>
+    <surveyls_numberformat><![CDATA[1]]></surveyls_numberformat>
+   </row>
+  </rows>
+ </surveys_languagesettings>
+</document>

@@ -1,0 +1,444 @@
+/***************************/
+/* START GG Customizations */
+/***************************/
+
+.qnumcode {
+    display: inline !important;
+}
+
+.questionCodeAndNumber {
+    display: block;
+}
+
+.questionNumber {
+    color: #555;
+}
+
+.questionCode {
+    color: #2A5581;
+}
+
+.mandatoryAsterisk {
+    display: none;
+}
+
+.survey-group div.mandatory {
+    border-left: 0;
+    /* border-left: 3px solid #2A5581; */
+}
+
+.verticalText {
+    -ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    -moz-writing-mode: vertical-rl;
+    -ms-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.dual_scale_separator {
+  border-left: dotted 1px gray;
+  border-right: dotted 1px gray;
+}
+
+
+/* additional styles for adjusting the semantic differential question type */
+.scaletext
+{
+    display:table-cell;
+    text-align:left;
+    vertical-align:middle;
+    width:100%;
+    color: black;
+}
+
+.scaleleft
+{
+    display:table-cell;
+    text-align:right;
+    vertical-align:middle;
+    padding-left: 10px;
+}
+
+.scaleright
+{
+    display:table-cell;
+    text-align:left;
+}
+
+div.q-text {
+    margin-top: 2em;
+}
+
+span.mandatory {
+    display: none;
+}
+
+thead tr {
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-top: 1em;
+    margin-top: 1em;
+}
+
+
+
+
+
+
+/* Note: rl instead of lr because or the rotation */
+.verticalText {
+    -ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    -moz-writing-mode: vertical-rl;
+    -ms-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
+}
+
+.dual_scale_separator {
+  border-left: dotted 1px gray;
+  border-right: dotted 1px gray;
+}
+
+.pageBreakBeforeThisQuestion {
+  display: none;
+}
+
+.alignRight {
+    width: 100%;
+    text-align: right;
+}
+
+.alignLeft {
+    width: 100%;
+    text-align: left;
+}
+
+.hidden {
+  display:none !important;
+}
+
+.whiteBox {
+  background-color: white;
+  padding:15px;
+  text-shadow: none;
+  color: #555;
+}
+
+div.whiteBox a, div.whiteBox a:link, div.whiteBox a:visited {
+  color: #2a5581;
+}
+
+div.whiteBox a:hover, div.whiteBox a:active  {
+  color: #A4C3E2;
+}
+
+.width75 {
+  width:75px;
+  min-width: 75px;
+  max-width: 75px;
+}
+
+.width90 {
+  width:90px;
+  min-width: 90px;
+  max-width: 90px;
+}
+
+.width100 {
+  width:100px;
+  min-width: 100px;
+  max-width: 100px;
+}
+
+.width125 {
+  width:125px;
+  min-width: 125px;
+  max-width: 125px;
+}
+
+.width150 {
+  width:150px;
+  min-width: 150px;
+  max-width: 150px;
+}
+
+/* Extra vertical spacing around  */
+
+div.q-answer tr.array1 td, div.q-answer tr.array1 th.answertext,
+                           div.q-answer tr.array2 td,
+                           div.q-answer tr.array2 th.answertext {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Hide 'expression manager tips' */
+div.emtip {
+  display: none;
+}
+
+div.q-text br {
+  display: none;
+}
+
+li.other-item div.input-other {
+    width: 400px !important;
+}
+
+/*************************/
+/* END GG Customizations */
+/*************************/
+
+body {
+  font-family:arial,helvetica,sans-serif;
+  font-size:12px;
+}
+
+h1,h2,h3,h4 {
+  font-family:verdana,arial,helvetica,sans-serif;
+}
+h2 {
+  margin-top:2em;
+}
+h3 {
+  margin-top:0;
+}
+
+* {
+  page-break-after:auto;
+}
+
+
+p.q-type-help {
+  margin-bottom: 0.5em;
+  display: none;   /* GG Template customization */  
+}
+
+div.q-help {
+  margin-top: 1.5em;
+  margin-bottom: 0%;
+}
+
+div.q-answer {
+  font-size: 12pt;
+}
+
+div.q-answer ul {
+  margin-left: 0%;
+  padding-left: 0.2em;
+}
+
+div.q-answer ul li {
+  list-style-type: none;
+  line-height: 1.9em;
+  margin-left: 0%;
+  padding-left: 0%;
+}
+
+div.survey-group {
+  page-break-after: always;
+}
+
+div.boilerplate,div.choice-5-pt-radio,div.date,div.list-radio-flexible,div.list-radio,div.list-dropdown-flexible,div.list-dropdown,div.list-with-comment,div.ranking,div.multiple-opt,div.language,div.multiple-opt-comments,div.multiple-short-txt,div.numeric-multi,div.numeric,div.text-short,div.text-long,div.text-huge,div.yes-no,div.gender,div.array-5-pt,div.array-10-pt,div.array-yes-uncertain-no,div.array-increase-same-decrease,div.array-flexible-row,div.array-flexible-column,div.array-multi-flexi,div.array-multi-flexi-text,div.array-flexible-duel-scale
+  {
+  border: 0.1em solid #aaa;
+  padding: 1em;
+  margin: 1em 0.5em 1em 0;
+  clear: both;
+  page-break-inside: avoid;
+  page-break-before: auto;
+}
+
+.breakbefore {
+  page-break-before: always !important;
+}
+
+.other {
+  
+}
+
+.question ul,.question ul li {
+  margin-left: 0%;
+  padding-left: 0%;
+  list-style: none;
+}
+
+.question ul li {
+  margin-bottom: 0.5em;
+}
+
+img.input-radio,img.input-checkbox {
+  position: relative;
+  top: 1px;
+  margin-right: 0.5em;
+}
+
+div.input-other,div.input-othercomment,div.input-rank,div.input-text,div.input-textarea
+  {
+  border: 0.1em solid #666666;
+}
+
+li.other {
+  margin-top: 0.3em;
+}
+
+div.input-other,div.input-othercomment {
+  width: 20em;
+  height: 2em;
+  display: inline-block;
+}
+
+.multiple-opt div.input-other {
+  padding-left: 5.5em;
+}
+
+.multiple-opt-comments div.other-replacettext {
+  display: table-cell;
+}
+
+.multiple-opt-comments div.input-other {
+  width: 10em;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.multiple-opt-comments div.input-othercomment {
+  width: 24em;
+  display: table-cell;
+}
+
+div.other-replacetext {
+  white-space: nowrap;
+}
+
+.ranking .q-answer li {
+  padding-left: 4em;
+  line-height: 2em;
+}
+
+.ranking li div.input-rank {
+  margin: 0% 0% -1.8em -4em;
+  width: 3em;
+  height: 2em;
+}
+
+.multiple-opt-comments .q-answer li,.multiple-short-txt .q-answer li,.numeric-multi .q-answer li
+  {
+  line-height: 2em;
+}
+
+.multiple-opt-comments div.input-text,.multiple-short-txt div.input-text,.numeric-multi div.input-text
+  {
+  display: table-cell;
+}
+
+.multiple-opt-comments .q-answer ul li span,.multiple-short-txt .q-answer ul li span,.numeric-multi .q-answer ul li span
+  {
+  display: table-cell;
+  padding-right: 5px;
+}
+
+.multiple-opt-comments .q-answer ul li,.multiple-short-txt .q-answer ul li,.numeric-multi .q-answer ul li
+  {
+  display: table-row;
+}
+
+.multiple-opt-comments .q-answer ul,.multiple-short-txt .q-answer ul,.numeric-multi .q-answer ul
+  {
+  display: table;
+  border-spacing: 3px;
+}
+
+#limesurvey .q-answer table thead th,#limesurvey .q-answer table .repeat th
+  {
+  text-align: center;
+  vertical-align: bottom;
+  font-weight: normal;
+  padding: 0% 1em;
+}
+
+#limesurvey .q-answer table tbody td {
+  text-align: center;
+}
+
+#limesurvey .q-answer table tbody td img {
+  margin: 0%;
+}
+
+#limesurvey .q-answer table tbody th.answertext,#limesurvey .q-answer table tbody th.arraycaptionleft
+  {
+  text-align: left;
+  font-weight: normal;
+}
+
+/*
+div.array-5-pt .q-answer table thead th
+,div.array-10-pt table thead th
+,div.array-yes-uncertain-no .q-answer table thead th
+,div.array-increase-same-decrease .q-answer table thead th
+,div.array-flexible-row .q-answer table thead th
+,div.array-flexible-column .q-answer table thead th
+,div.array-multi-flexi .q-answer table thead th
+,div.array-multi-flexi-text .q-answer table thead th
+,div.array-flexible-duel-scale .q-answer table thead th
+*/
+div.array-multi-flexi .q-answer table tbody td div.input-text {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.array-flexible-column tbody th.arraycaptionleft {
+  padding-right: 1em;
+}
+
+#limesurvey .q-answer table tbody th.answertextright {
+  text-align: left;
+  font-weight: normal;
+}
+
+/*
+.array-increase-same-decrease {}
+.array-flexible-row {}
+.array-flexible-column {}
+.slider {}
+.array-multi-flexi {}
+.array-flexible-duel-scale {}
+*/
+.array-flexible-column col.odd,.array-flexible-column th.odd {
+  background-color: #0c1c2b;
+  padding: 0% 0.3em;
+}
+
+/* Create spikes for single-row inputs */
+div.input-other,div.input-othercomment,div.input-rank,div.input-text {
+  background: transparent url(print_img_textspike.gif) repeat-x scroll 0%
+    50%
+}
+
+/*fix styling for some questions that cannot be controlled individually */
+.array-multi-flexi div.input-text,div.input-rank {
+  width: 51px !important;
+}
+
+.array-multi-flexi-text div.input-text {
+  width: 155px !important;
+}
+
+.date div.input-text {
+  width: 207px !important;
+}
+
+.multiple-opt-comments div.input-text {
+  width: 389px !important;
+}
+
+div.input-other {
+  width: 155px !important;
+}
+
