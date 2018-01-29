@@ -1,0 +1,28 @@
+---
+title: "CIBERlite"
+author: "Gjalt-Jorn Peters & Rik Crutzen"
+date: "29 January 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE);
+
+require('userfriendlyscience');
+safeRequire('here');
+
+dataPath <- here::here('results - data');
+dataFileRegEx <- 'survey_722821_R_data_file';
+dataLoadScriptName <- 'survey_722821_R_syntax_file.R';
+  
+categoricalQuestions <- 'sex';
+
+dat <- dat.raw <-
+  importLimeSurveyData(dataPath = dataPath,
+                       datafileRegEx = dataFileRegEx,
+                       scriptfile = file.path(dataPath,
+                                              dataLoadScriptName),
+                       categoricalQuestions = categoricalQuestions);
+
+```
