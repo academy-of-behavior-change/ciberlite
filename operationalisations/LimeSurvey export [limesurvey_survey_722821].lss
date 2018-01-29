@@ -2149,13 +2149,13 @@
   <rows>
    <row>
     <sid><![CDATA[722821]]></sid>
-    <admin><![CDATA[Gjalt-Jorn Peters & Rik Crutzen (Academy of Behavi]]></admin>
+    <admin><![CDATA[Gjalt-Jorn Peters & Rik Crutzen]]></admin>
     <adminemail><![CDATA[ciberlite@a-bc.eu]]></adminemail>
     <anonymized><![CDATA[Y]]></anonymized>
     <faxto/>
     <format><![CDATA[G]]></format>
     <savetimings><![CDATA[N]]></savetimings>
-    <template><![CDATA[greater_good_template]]></template>
+    <template><![CDATA[ciberlite_template]]></template>
     <language><![CDATA[nl-informal]]></language>
     <additional_languages/>
     <datestamp><![CDATA[N]]></datestamp>
