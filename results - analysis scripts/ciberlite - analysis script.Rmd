@@ -8,9 +8,13 @@ output: html_document
 ```{r setup, include=FALSE}
 
 knitr::opts_chunk$set(echo = TRUE);
+options(ufs.debug = FALSE);
 
 require('userfriendlyscience');
 safeRequire('here');
+safeRequire('data.tree');
+safeRequire('tidyverse');
+safeRequire('gridExtra');
 
 dataPath <- here::here('results - data');
 dataFileRegEx <- 'survey_722821_R_data_file';
@@ -18,11 +22,177 @@ dataLoadScriptName <- 'survey_722821_R_syntax_file.R';
   
 categoricalQuestions <- 'sex';
 
-dat <- dat.raw <-
+behaviors <- c("coffee", "publicTransport",
+               "runRedLight", "wasteSeparation",
+               "conSomebody", "marathon",
+               "longShower", "brushingTeeth");
+
+detStruct <- lapply(behaviors,
+                    function(behav) {
+                      return(determinantStructure(behav,
+                                                  list(behaviorRegEx = behav),
+                                                  determinantVar("intention",
+                                                                 "intention",
+                                                                 determinantVar("attitude",
+                                                                                "att"),
+                                                                 determinantVar("perceivedNorm",
+                                                                                "pn"),
+                                                                 determinantVar("perceivedBehavioralControl",
+                                                                                "pbc"))));
+                    });
+
+dat_ou.raw <-
   importLimeSurveyData(dataPath = dataPath,
                        datafileRegEx = dataFileRegEx,
                        scriptfile = file.path(dataPath,
                                               dataLoadScriptName),
                        categoricalQuestions = categoricalQuestions);
+
+dat <- dat_ou.raw;
+
+### Add variables names of the determinants' measures and compute
+### means where necessary
+for (i in seq_along(detStruct)) {
+  detStructAddVarNames(detStruct[[i]], names(dat));
+  dat <- detStructComputeScales(detStruct[[i]],
+                                dat);
+}
+
+lapply(dat[, grepl('attitude', names(dat))], mean, na.rm=TRUE);
+lapply(dat[, grepl('perceivedNorm', names(dat))], mean, na.rm=TRUE);
+lapply(dat[, grepl('perceivedBehavioralControl', names(dat))], mean, na.rm=TRUE);
+
+CIBERlite <- function(data,
+                      determinants,
+                      targets,
+                      determinantOrder = NULL,
+                      determinantLabels = NULL,
+                      title=NULL,
+                      conf.level = list(means = 0.9999,
+                                        associations = 0.95),
+                      scaleRange = NULL,
+                      determinantAesthetics = list(fill = 'black',
+                                                   color=NA,
+                                                   alpha=.5),
+                      subDeterminantAesthetics = list(fill = 'black',
+                                                      color=NA,
+                                                      alpha=.5)) {
+
+  if (is.list(determinants)) {
+    subDeterminantNames <- unlist(determinants);
+    determinantNames <- names(determinants);
+  } else {
+    subDeterminantNames <- c();
+    determinantNames <- determinants;
+  }
+  if (is.null(determinantOrder)) {
+    determinantOrder <- seq_along(determinantNames);
+  }
+  
+  ### Select relevant rows from dataset
+  dat <- data[, c(targets, determinantNames, subDeterminantNames)];
+  
+  ### Set minimum and maximum for the used scales, if not provided
+  if (is.null(scaleRange)) {
+    scaleRange <- c(min(dat[, c(determinantNames, subDeterminantNames)], na.rm=TRUE),
+                    max(dat[, c(determinantNames, subDeterminantNames)], na.rm=TRUE));
+  }
+  
+  if (getOption('ufs.debug', FALSE)) {
+    cat("\n", repStr("-", 50), "\n");
+    print(determinantNames);
+    print(subDeterminantNames);
+    print(determinantOrder);
+    print(scaleRange);
+  }
+  
+  print(dim(is.na(dat[, c(determinantNames, subDeterminantNames)])));
+  print((scaleRange[2] - scaleRange[1]));
+  print(class(dim(((dat[, c(determinantNames, subDeterminantNames)] - scaleRange[1]) /
+              (scaleRange[2] - scaleRange[1])))));
+  
+  ### Translate subdeterminants and determinants to 0-1 range
+  dat[, c(determinantNames, subDeterminantNames)] <-
+    ((dat[, c(determinantNames, subDeterminantNames)] - scaleRange[1]) /
+              (scaleRange[2] - scaleRange[1]));
+  
+  if (is.list(determinants)) {
+    ### We also have subdeterminants, so also get the means for those.
+    
+    subDeterminantDat<- sapply(dat[, subDeterminantNames],
+                               function(x) {
+                                 return(c(mean = mean(x, na.rm=TRUE),
+                                          sd = sd(x, na.rm=TRUE)));
+                               }) %>% t %>% as.data.frame;
+    subDeterminantDat$subdeterminant <- row.names(subDeterminantDat);
+    subDeterminantDat$determinant <- rep(determinantNames,
+                                         sapply(determinants, length));
+    subDeterminantDat$xPos <- rep(determinantOrder,
+                                  sapply(determinants, length));
+  }
+
+  determinantDat <- sapply(dat[, determinantNames],
+                           function(x) {
+                             return(c(mean = mean(x, na.rm=TRUE),
+                                      sd = sd(x, na.rm=TRUE)));
+                           }) %>% t %>% as.data.frame;
+  determinantDat$determinant <- row.names(determinantDat);
+  determinantDat$xPos <- determinantOrder;
+  
+  if (getOption('ufs.debug', FALSE)) {
+    print(determinantDat);
+    print(subDeterminantDat);
+  }
+  
+  if (is.null(determinantLabels)) {
+    determinantLabels <- determinantNames;
+  }
+  
+  ggplot() +
+    geom_hline(yintercept = c(0, 1),
+               color="black") +
+    geom_bar(data = subDeterminantDat,
+             aes_string(x = 'xPos',
+                        y = 'mean',
+                        group = 'subdeterminant'),
+             stat='identity',
+             position='dodge',
+             fill=subDeterminantAesthetics$fill,
+             color=subDeterminantAesthetics$color,
+             alpha=subDeterminantAesthetics$alpha) +
+    geom_bar(data = determinantDat,
+             aes_string(x = 'xPos',
+                        y = 'mean'),
+             stat='identity',
+             position='identity',
+             fill=determinantAesthetics$fill,
+             color=determinantAesthetics$color,
+             alpha=determinantAesthetics$alpha) +
+    theme_minimal() +
+    coord_cartesian(ylim=c(0,1)) +
+    scale_x_continuous(breaks=determinantOrder,
+                       labels=determinantLabels) +
+    ggtitle(title) +
+    xlab(NULL) +
+    ylab(NULL);
+}
+
+CIBERlitePlots <- lapply(seq_along(detStruct),
+                         function(i) {
+                           behaviorName <- detStruct[[i]]$behaviorRegEx;
+                           detStructVars <-
+                             detStruct[[i]]$Get('varNames', filterFun=isLeaf);
+                           ### Set name to variable name of overarching determinant
+                           names(detStructVars) <-
+                             detStruct[[i]]$Get("scaleVarName", filterFun=isLeaf);
+                           return(CIBERlite(dat,
+                                            determinants=detStructVars,
+                                            determinantLabels=c('Att', 'PN', 'PBC'),
+                                            scaleRange=c(1,5),
+                                            targets=detStruct[[i]]$intention$scaleVarName) +
+                                    ggtitle(behaviorName));
+                         });
+
+grid.arrange(grobs=CIBERlitePlots, ncol=4);
 
 ```
