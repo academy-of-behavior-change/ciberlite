@@ -17,8 +17,8 @@ safeRequire('tidyverse');
 safeRequire('gridExtra');
 
 dataPath <- here::here('results - data');
-dataFileRegEx <- 'survey_722821_R_data_file';
-dataLoadScriptName <- 'survey_722821_R_syntax_file.R';
+OUdataFileRegEx <- 'survey_722821_R_data_file_\\[OU-version]';
+OUdataLoadScriptName <- 'survey_722821_R_syntax_file_[OU-version].R';
   
 categoricalQuestions <- 'sex';
 
@@ -43,9 +43,9 @@ detStruct <- lapply(behaviors,
 
 dat_ou.raw <-
   importLimeSurveyData(dataPath = dataPath,
-                       datafileRegEx = dataFileRegEx,
+                       datafileRegEx = OUdataFileRegEx,
                        scriptfile = file.path(dataPath,
-                                              dataLoadScriptName),
+                                              OUdataLoadScriptName),
                        categoricalQuestions = categoricalQuestions);
 
 dat <- dat_ou.raw;

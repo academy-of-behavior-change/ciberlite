@@ -359,8 +359,8 @@ data[, 73] <- as.numeric(data[, 73])
 attributes(data)$variable.labels[73] <- "Wat is de hoogste opleiding die u heeft afgerond of nu volgt?"
 data[, 73] <- factor(data[, 73], levels=c(1,2,3,4,5,6),labels=c("Basisonderwijs", "VMBO (bijvoorbeeld praktijkonderwijs)", "HAVO / VWO", "MBO (bijvoorbeeld een ROC)", "HBO", "WO (bijvoorbeeld een MSc of PhD)"))
 names(data)[73] <- "education"
-# LimeSurvey Field type: F
-data[, 74] <- as.numeric(data[, 74])
+# LimeSurvey Field type: A
+data[, 74] <- as.character(data[, 74])
 attributes(data)$variable.labels[74] <- "[Andere] Wat is de hoogste opleiding die u heeft afgerond of nu volgt?"
 names(data)[74] <- "education_other"
 # LimeSurvey Field type: F

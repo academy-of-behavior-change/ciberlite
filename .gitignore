@@ -32,3 +32,6 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 .Rproj.user
+
+# Raw dataset before deleting participants who indicated they wanted their data deleted
+survey_722821_R_data_file_[OU-version].csv
