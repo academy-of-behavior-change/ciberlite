@@ -16,7 +16,7 @@ safeRequire('data.tree');
 safeRequire('tidyverse');
 safeRequire('gridExtra');
 
-dataPath <- here::here('results - data');
+dataPath <- here::here('results-data');
 OUdataFileRegEx <- 'survey_722821_R_data_file_\\[OU-version]';
 OUdataLoadScriptName <- 'survey_722821_R_syntax_file_[OU-version].R';
   
