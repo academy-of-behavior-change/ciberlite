@@ -15,11 +15,16 @@ safeRequire('here');
 safeRequire('data.tree');
 safeRequire('tidyverse');
 safeRequire('gridExtra');
+safeRequire('readODS');
 
-dataPath <- here::here('results-data');
+dataPath <- here::here('results-data-raw');
+processedDataPath <- here::here('results-data-processed');
 OUdataFileRegEx <- 'survey_722821_R_data_file_\\[OU-version]';
-OUdataLoadScriptName <- 'survey_722821_R_syntax_file_[OU-version].R';
-  
+OUdataLoadScriptName <- 'survey_722821_R_syntax_file_\\[OU-version].R';
+
+ondrzkDataFileRegEx <- 'survey_722821_R_data_file_\\[ondrzk-version]';
+ondrzkDataLoadScriptName <- 'survey_722821_R_syntax_file_[ondrzk-version].R';
+
 categoricalQuestions <- 'sex';
 
 behaviors <- c("coffee", "publicTransport",
@@ -27,19 +32,24 @@ behaviors <- c("coffee", "publicTransport",
                "conSomebody", "marathon",
                "longShower", "brushingTeeth");
 
-detStruct <- lapply(behaviors,
-                    function(behav) {
-                      return(determinantStructure(behav,
-                                                  list(behaviorRegEx = behav),
-                                                  determinantVar("intention",
-                                                                 "intention",
-                                                                 determinantVar("attitude",
-                                                                                "att"),
-                                                                 determinantVar("perceivedNorm",
-                                                                                "pn"),
-                                                                 determinantVar("perceivedBehavioralControl",
-                                                                                "pbc"))));
-                    });
+detStruct <-
+  lapply(behaviors,
+         function(behav) {
+  return(determinantStructure(behav,
+                              list(behaviorRegEx = behav),
+                              determinantVar("intention",
+                                             "intention",
+                                             determinantVar("attitude",
+                                                            "att"),
+                                             determinantVar("perceivedNorm",
+                                                            "pn"),
+                                             determinantVar("perceivedBehavioralControl",
+                                                            "pbc"))));
+});
+
+########################################################################
+### Data from online surveys
+########################################################################
 
 dat_ou.raw <-
   importLimeSurveyData(dataPath = dataPath,
@@ -48,6 +58,33 @@ dat_ou.raw <-
                                               OUdataLoadScriptName),
                        categoricalQuestions = categoricalQuestions);
 
+dat_ondrzk.raw <-
+  importLimeSurveyData(dataPath = dataPath,
+                       datafileRegEx = ondrzkDataFileRegEx,
+                       scriptfile = file.path(dataPath,
+                                              ondrzkDataLoadScriptName),
+                       categoricalQuestions = categoricalQuestions);
+
+########################################################################
+### Paper-and-pencil survey
+########################################################################
+
+### Save first two lines of 'onderzk' data as example for
+### data entry of paper-and-pencil questionnaires
+dataEntryTemplateFile <-
+  file.path(processedDataPath,
+            "data-entry-template.ods");
+if (file.exists(dataEntryTemplateFile)) {
+  unlink(dataEntryTemplateFile)
+}
+write_ods(dat_ondrzk.raw[1:2, 7:75],
+          dataEntryTemplateFile);
+
+########################################################################
+### Data merging and aggregations
+########################################################################
+
+### Merge data files
 dat <- dat_ou.raw;
 
 ### Add variables names of the determinants' measures and compute
