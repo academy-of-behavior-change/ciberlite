@@ -70,14 +70,30 @@ dat_ou.raw <-
 ### Delete data from students who indicated they want their data
 ### destroyed
 ### (note that the original data file is excluded using .gitignore)
-########################################################################
-
+###
 ### Note: if you ever accidently commit private data to git, this can
 ### be removed using bfg, see:
+###
 ###   https://help.github.com/articles/removing-sensitive-data-from-a-repository/
 ###   https://rtyley.github.io/bfg-repo-cleaner/
+###
 ### For example, assuming you have version 1.13 installed in the
-### directory B:\Apps\bfg, and you just 
+### directory B:\Apps\bfg, and you just cloned a fresh copy using
+###
+###   git clone --mirror https://github.com/academy-of-behavior-change/ciberlite
+###
+### Then you can delete all comma separated values (*.csv) files from the
+### git history  using:
+###
+###   java -jar B:\Apps\bfg\bfg-1.13.0.jar --delete-files *.csv ciberlite.git
+###
+### Then run, as instructed by bfg:
+###
+###   cd ciberlite.git
+###   git reflog expire --expire=now --all && git gc --prune=now --aggressive
+###   git push
+###
+########################################################################
 
 ### First get the position of the variable used to indicate whether
 ### data should be deleted:
