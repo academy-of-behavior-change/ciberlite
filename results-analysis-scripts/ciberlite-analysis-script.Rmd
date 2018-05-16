@@ -19,6 +19,7 @@ safeRequire('readODS');
 
 dataPath <- here::here('results-data-raw');
 processedDataPath <- here::here('results-data-processed');
+
 privateOUdataFileRegEx <- 'survey_722821_R_data_file_\\[PRIVATE-OU-version]';
 publicOUdataFileRegEx <- 'survey_722821_R_data_file_\\[PUBLIC-OU-version]';
 OUdataLoadScriptName <- 'survey_722821_R_syntax_file_[OU-version].R';
@@ -312,9 +313,12 @@ CIBERlitePlots <- lapply(seq_along(detStruct),
 
 grid.arrange(grobs=CIBERlitePlots, ncol=4);
 
+<<<<<<< HEAD
 ### Correlation between the two sub-determinants
 
 cor(dat[, unlist(detStruct[[1]]$intention$perceivedNorm$varNames)], use='complete');
 
 
+=======
+>>>>>>> 8990525e519957bfa8a7849582b05e59a7ab50b0
 ```
