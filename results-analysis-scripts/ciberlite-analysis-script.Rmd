@@ -1,7 +1,7 @@
 ---
 title: "CIBERlite"
 author: "Gjalt-Jorn Peters & Rik Crutzen"
-date: "29 January 2018"
+date: "`r format(Sys.time(), '%H:%M:%S on %Y-%m-%d %Z (GMT%z)')`"
 output: html_document
 ---
 
@@ -30,7 +30,8 @@ ondrzkDataLoadScriptName <- 'survey_722821_R_syntax_file_[ondrzk-version].R';
 categoricalQuestions <- c('sex',
                           'education');
 
-dataDeletionVarName <- "dataMustBeDeleted_delete";
+dataDeletionVarCode <- "dataMustBeDeleted";
+dataDeletionSubQuestionCode <- "delete";
 dataDeletionVarValue <- "2";
 privateFileIdentificationString <- "PRIVATE-";
 publicFileIdentificationString <- "PUBLIC-";
@@ -55,21 +56,22 @@ detStruct <-
                                                             "pbc"))));
 });
 
+```
+
+
+
+```{r}
+
 ########################################################################
+###
 ### Import data from Open University survey
+###
 ########################################################################
-
-dat_ou.raw <-
-  importLimeSurveyData(dataPath = dataPath,
-                       datafileRegEx = OUdataFileRegEx,
-                       scriptfile = file.path(dataPath,
-                                              OUdataLoadScriptName),
-                       categoricalQuestions = categoricalQuestions);
-
-########################################################################
-### Delete data from students who indicated they want their data
-### destroyed
-### (note that the original data file is excluded using .gitignore)
+###
+### First delete the data from students who indicated they want their
+### data destroyed (note that this private data file is excluded from
+### synchronization with the GitHub repository, and therefore the OSF
+### repository, using .gitignore)
 ###
 ### Note: if you ever accidently commit private data to git, this can
 ### be removed using bfg, see:
@@ -95,61 +97,124 @@ dat_ou.raw <-
 ###
 ########################################################################
 
-### First get the position of the variable used to indicate whether
-### data should be deleted:
-dataDeletionVarIndex <-
-  grep(dataDeletionVarName, names(dat));
-
-### Then construct the regular expression for matching the lines in
-### the dataset that contain the data of participants who indicated
-### they wanted their data deleted. A regular expression of the
-### following form is constructed:
-###
-### (?:"[^"]*",){75}"2"
-###
-### The '75' is the index minus one, and the '2' the value indicating
-### that data should be deleted. This regular expression matches any
-### value between a pair of double quotes followed by a comma exactly
-### 75 times; then matches a '2' between pair of double quotes. This
-### pair of double quotes contains the value of the 76th variable (so,
-### in this example, the value of the variable indicating whether data
-### should be deleted), and therefore, this regular expression matches
-### all lines containing data that should be deleted.
-
-dataDeletionRegEx <-
-  paste0('(?:"[^"]*",){',
-         dataDeletionVarIndex-1,
-         '}"',
-         dataDeletionVarValue,
-         '"');
-
 ### Get a list of all data files in data directory
-filesToDeleteDataFrom <-
+privateDataFiles <-
   list.files(dataPath);
 
 ### Select only those matching the regular expression for
 ### Open University data files
-filesToDeleteDataFrom <-
+privateDataFiles <-
   grep(privateOUdataFileRegEx,
-       filesToDeleteDataFrom,
+       privateDataFiles,
        value=TRUE);
 
+dataDeletionVarName <- paste0(dataDeletionVarCode,
+                              "_",
+                              dataDeletionSubQuestionCode);
+
 ### Loop through the files
-for (currentFilename in filesToDeleteDataFrom) {
-  ### Read file
-  tmpFile <-
-    readLines(file.path(dataPath,
-                        currentFilename));
+for (currentFilename in privateDataFiles) {
   
-  ### Construct new filename to write public version of data to
-  newTmpFilename <- sub(privateFileIdentificationString,
-                        publicFileIdentificationString,
-                        currentFilename,
-                        fixed=TRUE);
+  ### Run within local, temporary namespace (so that all variables
+  ### are deleted afterwards)
+  local({
   
+    ### First read in a temporary version of the data
+    dat <-
+      importLimeSurveyData(datafile = file.path(dataPath,
+                                                currentFilename),
+                           datafileRegEx = privateOUdataFileRegEx,
+                           scriptfile = file.path(dataPath,
+                                                  OUdataLoadScriptName),
+                           categoricalQuestions = categoricalQuestions);
+    
+    ### Then get the position of the variable used to indicate whether
+    ### data should be deleted:
+    dataDeletionVarIndex <-
+      grep(dataDeletionVarName, names(dat));
+    
+    ### Then construct the regular expression for matching the lines in
+    ### the dataset that contain the data of participants who indicated
+    ### they wanted their data deleted. A regular expression of the
+    ### following form is constructed:
+    ###
+    ### (?:"[^"]*",){75}"2"
+    ###
+    ### The '75' is the index minus one, and the '2' the value indicating
+    ### that data should be deleted. This regular expression matches any
+    ### value between a pair of double quotes followed by a comma exactly
+    ### 75 times; then matches a '2' between pair of double quotes. This
+    ### pair of double quotes contains the value of the 76th variable (so,
+    ### in this example, the value of the variable indicating whether data
+    ### should be deleted), and therefore, this regular expression matches
+    ### all lines containing data that should be deleted.
+    
+    dataDeletionRegEx <-
+      paste0('(?:"[^"]*",){',
+             dataDeletionVarIndex-1,
+             '}"',
+             dataDeletionVarValue,
+             '"');
+
+    ### Then read the datafile as character vector
+    fullPrivateDataFile <-
+      readLines(file.path(dataPath,
+                          currentFilename));
+    cat0("\n\nRead data file '", currentFilename, "'.\n\n");
+
+    ### Get indices of lines that have to be deleted
+    linesToDelete <- grep(dataDeletionRegEx,
+                          fullPrivateDataFile);
+    
+    ### Log deletion
+    cat0("Identified ", length(linesToDelete), " participants who ",
+         "indicated they want their data to be deleted, specifically, ",
+         "the following lines of the original raw dataset:\n\n",
+         vecTxtQ(linesToDelete));
+    
+    ### Delete those lines
+    fullPrivateDataFile <- fullPrivateDataFile[-linesToDelete];
+
+    ### Construct new filename to write public version of data to
+    newTmpFilename <- sub(privateFileIdentificationString,
+                          publicFileIdentificationString,
+                          currentFilename,
+                          fixed=TRUE);
+    
+    ### Store new datafile
+    writeLines(fullPrivateDataFile,
+               file.path(dataPath,
+                         newTmpFilename));
+
+    cat0("\n\nStored data file '", newTmpFilename, "'.\n\n");
+
+  });  ### End local namespace
+
 }
 
+########################################################################
+### Import data from Open University survey
+########################################################################
 
+dat_ou.raw <-
+  importLimeSurveyData(dataPath = dataPath,
+                       datafileRegEx = publicOUdataFileRegEx,
+                       scriptfile = file.path(dataPath,
+                                              OUdataLoadScriptName),
+                       categoricalQuestions = categoricalQuestions);
+
+### Verify that no entries were read where people indicated they wanted
+### their data removed
+if (any(dat_ou.raw[, dataDeletionVarName]==dataDeletionVarValue, na.rm=TRUE)) {
+  stop("The public data contains data from people who indicated they ",
+       "wanted their data to be removed!");
+} else {
+  ### Delete variable storing whether people want their data deleted,
+  ### so that the data can be easily merged with the dataset from
+  ### ondrzk.nl
+  dat_ou.raw[, grepl(dataDeletionVarCode,
+                     names(dat_ou.raw))] <- NULL;
+}
 
 ########################################################################
 ### Import data from separate online survey
@@ -181,9 +246,27 @@ write_ods(dat_ondrzk.raw[1:2, 7:75],
 ### Data merging and aggregations
 ########################################################################
 
-### Merge data files
-dat <- dat_ou.raw;
+### Because these are different versions of LimeSurvey, the timing
+### variables are named differently, so copy the column names
+if (ncol(dat_ondrzk.raw) != ncol(dat_ou.raw)) {
+  stop("Data files to merge have different numbers of columns!");
+} else {
+  names(dat_ondrzk.raw) <- names(dat_ou.raw);
+}
 
+### Merge data files
+dat <- rbind(dat_ou.raw, dat_ondrzk.raw);
+
+### Export merged datafile
+write.csv(dat,
+          file.path(processedDataPath,
+                    "ciberlite-data--merged-public-raw.csv"));
+
+```
+
+
+
+```{r}
 ### Add variables names of the determinants' measures and compute
 ### means where necessary
 for (i in seq_along(detStruct)) {
@@ -329,12 +412,8 @@ CIBERlitePlots <- lapply(seq_along(detStruct),
 
 grid.arrange(grobs=CIBERlitePlots, ncol=4);
 
-<<<<<<< HEAD
 ### Correlation between the two sub-determinants
 
 cor(dat[, unlist(detStruct[[1]]$intention$perceivedNorm$varNames)], use='complete');
 
-
-=======
->>>>>>> 8990525e519957bfa8a7849582b05e59a7ab50b0
 ```
