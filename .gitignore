@@ -34,4 +34,4 @@ vignettes/*.pdf
 .Rproj.user
 
 # Raw dataset before deleting participants who indicated they wanted their data deleted
-PRIVATE-
+*PRIVATE-*.csv
