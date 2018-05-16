@@ -19,13 +19,20 @@ safeRequire('readODS');
 
 dataPath <- here::here('results-data-raw');
 processedDataPath <- here::here('results-data-processed');
-OUdataFileRegEx <- 'survey_722821_R_data_file_\\[OU-version]';
-OUdataLoadScriptName <- 'survey_722821_R_syntax_file_\\[OU-version].R';
+privateOUdataFileRegEx <- 'survey_722821_R_data_file_\\[PRIVATE-OU-version]';
+publicOUdataFileRegEx <- 'survey_722821_R_data_file_\\[PUBLIC-OU-version]';
+OUdataLoadScriptName <- 'survey_722821_R_syntax_file_[OU-version].R';
 
 ondrzkDataFileRegEx <- 'survey_722821_R_data_file_\\[ondrzk-version]';
 ondrzkDataLoadScriptName <- 'survey_722821_R_syntax_file_[ondrzk-version].R';
 
-categoricalQuestions <- 'sex';
+categoricalQuestions <- c('sex',
+                          'education');
+
+dataDeletionVarName <- "dataMustBeDeleted_delete";
+dataDeletionVarValue <- "2";
+privateFileIdentificationString <- "PRIVATE-";
+publicFileIdentificationString <- "PUBLIC-";
 
 behaviors <- c("coffee", "publicTransport",
                "runRedLight", "wasteSeparation",
@@ -48,7 +55,7 @@ detStruct <-
 });
 
 ########################################################################
-### Data from online surveys
+### Import data from Open University survey
 ########################################################################
 
 dat_ou.raw <-
@@ -57,6 +64,79 @@ dat_ou.raw <-
                        scriptfile = file.path(dataPath,
                                               OUdataLoadScriptName),
                        categoricalQuestions = categoricalQuestions);
+
+########################################################################
+### Delete data from students who indicated they want their data
+### destroyed
+### (note that the original data file is excluded using .gitignore)
+########################################################################
+
+### Note: if you ever accidently commit private data to git, this can
+### be removed using bfg, see:
+###   https://help.github.com/articles/removing-sensitive-data-from-a-repository/
+###   https://rtyley.github.io/bfg-repo-cleaner/
+### For example, assuming you have version 1.13 installed in the
+### directory B:\Apps\bfg, and you just 
+
+### First get the position of the variable used to indicate whether
+### data should be deleted:
+dataDeletionVarIndex <-
+  grep(dataDeletionVarName, names(dat));
+
+### Then construct the regular expression for matching the lines in
+### the dataset that contain the data of participants who indicated
+### they wanted their data deleted. A regular expression of the
+### following form is constructed:
+###
+### (?:"[^"]*",){75}"2"
+###
+### The '75' is the index minus one, and the '2' the value indicating
+### that data should be deleted. This regular expression matches any
+### value between a pair of double quotes followed by a comma exactly
+### 75 times; then matches a '2' between pair of double quotes. This
+### pair of double quotes contains the value of the 76th variable (so,
+### in this example, the value of the variable indicating whether data
+### should be deleted), and therefore, this regular expression matches
+### all lines containing data that should be deleted.
+
+dataDeletionRegEx <-
+  paste0('(?:"[^"]*",){',
+         dataDeletionVarIndex-1,
+         '}"',
+         dataDeletionVarValue,
+         '"');
+
+### Get a list of all data files in data directory
+filesToDeleteDataFrom <-
+  list.files(dataPath);
+
+### Select only those matching the regular expression for
+### Open University data files
+filesToDeleteDataFrom <-
+  grep(privateOUdataFileRegEx,
+       filesToDeleteDataFrom,
+       value=TRUE);
+
+### Loop through the files
+for (currentFilename in filesToDeleteDataFrom) {
+  ### Read file
+  tmpFile <-
+    readLines(file.path(dataPath,
+                        currentFilename));
+  
+  ### Construct new filename to write public version of data to
+  newTmpFilename <- sub(privateFileIdentificationString,
+                        publicFileIdentificationString,
+                        currentFilename,
+                        fixed=TRUE);
+  
+}
+
+
+
+########################################################################
+### Import data from separate online survey
+########################################################################
 
 dat_ondrzk.raw <-
   importLimeSurveyData(dataPath = dataPath,
@@ -231,5 +311,10 @@ CIBERlitePlots <- lapply(seq_along(detStruct),
                          });
 
 grid.arrange(grobs=CIBERlitePlots, ncol=4);
+
+### Correlation between the two sub-determinants
+
+cor(dat[, unlist(detStruct[[1]]$intention$perceivedNorm$varNames)], use='complete');
+
 
 ```
