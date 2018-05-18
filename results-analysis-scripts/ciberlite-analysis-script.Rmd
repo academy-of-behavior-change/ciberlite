@@ -284,6 +284,7 @@ CIBERlite <- function(data,
                       targets,
                       determinantOrder = NULL,
                       determinantLabels = NULL,
+                      subDeterminantLabels = NULL,
                       title=NULL,
                       conf.level = list(means = 0.9999,
                                         associations = 0.95),
@@ -293,7 +294,10 @@ CIBERlite <- function(data,
                                                    alpha=.5),
                       subDeterminantAesthetics = list(fill = 'black',
                                                       color=NA,
-                                                      alpha=.5)) {
+                                                      alpha=.5),
+                      rDiamondAesthetics = list(fill = '#c4c4c4',
+                                                color=NA,
+                                                alpha=.75)) {
 
   if (is.list(determinants)) {
     subDeterminantNames <- unlist(determinants);
@@ -304,6 +308,13 @@ CIBERlite <- function(data,
   }
   if (is.null(determinantOrder)) {
     determinantOrder <- seq_along(determinantNames);
+  }
+
+  if (getOption('ufs.debug', FALSE)) {
+    cat("\n", repStr("-", 50), "\n");
+    print(targets);
+    print(determinantNames);
+    print(subDeterminantNames);
   }
   
   ### Select relevant rows from dataset
@@ -317,8 +328,6 @@ CIBERlite <- function(data,
   
   if (getOption('ufs.debug', FALSE)) {
     cat("\n", repStr("-", 50), "\n");
-    print(determinantNames);
-    print(subDeterminantNames);
     print(determinantOrder);
     print(scaleRange);
   }
@@ -352,18 +361,69 @@ CIBERlite <- function(data,
                            function(x) {
                              return(c(mean = mean(x, na.rm=TRUE),
                                       sd = sd(x, na.rm=TRUE)));
-                           }) %>% t %>% as.data.frame;
+                           }) %>%
+    t %>%
+    as.data.frame;
   determinantDat$determinant <- row.names(determinantDat);
   determinantDat$xPos <- determinantOrder;
   
+  determinantTargetCorObject <-
+    associationMatrix(dat,
+                      x = determinantNames,
+                      y = targets);
+  
+  determinantTarget.r <-
+    determinantTargetCorObject$output$raw$es;
+  determinantTarget.ci.lo <-
+    determinantTargetCorObject$output$raw$ci.lo;
+  determinantTarget.ci.hi <-
+    determinantTargetCorObject$output$raw$ci.hi;
+  
+  rDiamondCoordinates <-
+    lapply(1:length(targets), function(targetIndex) {
+      tmpDf <- cbind(determinantTargetCorObject$output$raw$ci.lo[, targetIndex],
+                                       determinantTargetCorObject$output$raw$es[, targetIndex],
+                                       determinantTargetCorObject$output$raw$ci.hi[, targetIndex]);
+      return(lapply(1:nrow(tmpDf),
+                    function(determinantIndex) {
+                      return(diamondCoordinates(tmpDf[determinantIndex, ],
+                                                otherAxisValue = determinantIndex));
+                    }));
+     });
+  
+  rDiamondLayer <- 
+    lapply(1:length(targets), function(targetIndex) {
+      tmpDf <-
+        cbind(determinantTargetCorObject$output$raw$ci.lo[, targetIndex],
+              determinantTargetCorObject$output$raw$es[, targetIndex],
+              determinantTargetCorObject$output$raw$ci.hi[, targetIndex]) %>%
+        as.data.frame;
+      return(ggDiamondLayer(tmpDf,
+                            direction="vertical",
+                            color=rDiamondAesthetics$fill,
+                            lineColor=rDiamondAesthetics$color,
+                            alpha=rDiamondAesthetics$alpha));
+     });
+
   if (getOption('ufs.debug', FALSE)) {
+    cat("\n", repStr("-", 50), "\n");
     print(determinantDat);
+    cat("\n", repStr("-", 50), "\n");
     print(subDeterminantDat);
+    cat("\n", repStr("-", 50), "\n");
+    print(rDiamondCoordinates);
+    cat("\n", repStr("-", 50), "\n");
   }
   
   if (is.null(determinantLabels)) {
     determinantLabels <- determinantNames;
   }
+  if (is.null(subDeterminantLabels)) {
+    subDeterminantLabels <- subDeterminantNames;
+  }
+  
+  print(determinantOrder);
+  print(subDeterminantLabels);
   
   ggplot() +
     geom_hline(yintercept = c(0, 1),
@@ -385,10 +445,15 @@ CIBERlite <- function(data,
              fill=determinantAesthetics$fill,
              color=determinantAesthetics$color,
              alpha=determinantAesthetics$alpha) +
+    rDiamondLayer +
     theme_minimal() +
     coord_cartesian(ylim=c(0,1)) +
     scale_x_continuous(breaks=determinantOrder,
-                       labels=determinantLabels) +
+                       labels=determinantLabels,
+                       sec.axis=dup_axis(breaks=c(determinantOrder-.25,
+                                                  determinantOrder+.25),
+                                         labels=c(subDeterminantLabels[is.odd(seq_along(subDeterminantLabels))],
+                                                  subDeterminantLabels[is.even(seq_along(subDeterminantLabels))]))) +
     ggtitle(title) +
     xlab(NULL) +
     ylab(NULL);
@@ -405,6 +470,7 @@ CIBERlitePlots <- lapply(seq_along(detStruct),
                            return(CIBERlite(dat,
                                             determinants=detStructVars,
                                             determinantLabels=c('Att', 'PN', 'PBC'),
+                                            subDeterminantLabels=c("Exp", "Ins", "Inj", "Des", "Cap", "Con"),
                                             scaleRange=c(1,5),
                                             targets=detStruct[[i]]$intention$scaleVarName) +
                                     ggtitle(behaviorName));
