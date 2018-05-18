@@ -497,7 +497,7 @@ CIBERlite <- function(data,
 
 # CIBERlite plots
 
-```{r}
+```{r results="asis"}
 
 CIBERlitePlots <- lapply(seq_along(detStruct),
                          function(i) {
@@ -516,7 +516,10 @@ CIBERlitePlots <- lapply(seq_along(detStruct),
                                     ggtitle(behaviorName));
                          });
 
-grid.arrange(grobs=CIBERlitePlots, ncol=4);
+arrangeGrob(grobs=CIBERlitePlots, ncol=4) %>%
+  knitFig(figWidth=21/2.54,
+          figHeight=14/2.54,
+          figCaption="Figure 1: a CIBER plot.");
 
 ```
 
