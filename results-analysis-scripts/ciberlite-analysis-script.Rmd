@@ -2,8 +2,34 @@
 title: "CIBERlite"
 author: "Gjalt-Jorn Peters & Rik Crutzen"
 date: "`r format(Sys.time(), '%H:%M:%S on %Y-%m-%d %Z (GMT%z)')`"
-output: html_document
+output:
+  html_document:
+    toc: true
 ---
+
+# Introduction
+
+## Status of this file
+
+This is the R Markdown file for the CIBERlite study. This study is a project of the Academcy of Behavior Change. The canonical URL for this study is https://ciberlite.com. Initially, this will resolve to the study's Open Science Framework repository (https://osf.io/2uwxp/), but in time it may point to a website to facilitate CIBERlite implementation by prevention organisations. The study's OSF repository (repo) synchronises with the GitHub repo at https://github.com/academy-of-behavior-change/ciberlite.
+
+This R Markdown file is very much a living document, and as such, also contains all R code. For the CIBERlite plot, scroll down to the CIBERlite plots heading.
+
+Finally, note that because this is a living, cutting edge project, you will probably need the most up-to-date version of the `userfriendlyscience` package (*if* that has been submitted to CRAN yet). See https://userfriendlyscience.com for instructions as to how to install it.
+
+## Background of the project
+
+CIBERlite is a project where we aim to provide an easy-to-use and apply rudimentary approximation of a determinant study, so that practitioners (e.g. for preventions organisations) can feasibly quickly get an idea of which determinants are the most relevant in predicting a given target behavior in a given target population. To develop this method, we conduct a study comparing relative determinant levels for eight behaviors in the general population.
+
+A second goal of CIBERlite, but only one that only emerged as we were working on this project, is to work towards a framework for calibrating determinant operationalisations over behaviors and populations.
+
+## License of these materials
+
+This file and the other materials in the OSF and GitHub repo's associated with this project are licensed under the Creative Commons attribution share alike license (CC-BY-NC-SA; see http://creativecommons.org/licenses/by-nc-sa/4.0/). This means that you are allowed to copy and distribute these files freely, but you’re not allowed to sell them. It also means that if you create derivative works (i.e. if you remix, transform, or build upon the material), you must distribute your contributions under the same license as the original.
+
+# Setup of R environment
+
+Here, we configure some settings and load the required R packages.
 
 ```{r setup, include=FALSE}
 
@@ -58,7 +84,9 @@ detStruct <-
 
 ```
 
+# Data import and merging
 
+This includes sanitizing the private data files for publication.
 
 ```{r}
 
@@ -108,88 +136,94 @@ privateDataFiles <-
        privateDataFiles,
        value=TRUE);
 
-dataDeletionVarName <- paste0(dataDeletionVarCode,
+if (length(privateDataFiles) > 0) {
+  ### Private data files are present; this means we run on the PC
+  ### of one of the researchers. That means we should sanitize the
+  ### datasets and prepare them for publishing.
+  
+  dataDeletionVarName <- paste0(dataDeletionVarCode,
                               "_",
                               dataDeletionSubQuestionCode);
 
-### Loop through the files
-for (currentFilename in privateDataFiles) {
+  ### Loop through the files
+  for (currentFilename in privateDataFiles) {
+    
+    ### Run within local, temporary namespace (so that all variables
+    ### are deleted afterwards)
+    local({
+    
+      ### First read in a temporary version of the data
+      dat <-
+        importLimeSurveyData(datafile = file.path(dataPath,
+                                                  currentFilename),
+                             datafileRegEx = privateOUdataFileRegEx,
+                             scriptfile = file.path(dataPath,
+                                                    OUdataLoadScriptName),
+                             categoricalQuestions = categoricalQuestions);
+      
+      ### Then get the position of the variable used to indicate whether
+      ### data should be deleted:
+      dataDeletionVarIndex <-
+        grep(dataDeletionVarName, names(dat));
+      
+      ### Then construct the regular expression for matching the lines in
+      ### the dataset that contain the data of participants who indicated
+      ### they wanted their data deleted. A regular expression of the
+      ### following form is constructed:
+      ###
+      ### (?:"[^"]*",){75}"2"
+      ###
+      ### The '75' is the index minus one, and the '2' the value indicating
+      ### that data should be deleted. This regular expression matches any
+      ### value between a pair of double quotes followed by a comma exactly
+      ### 75 times; then matches a '2' between pair of double quotes. This
+      ### pair of double quotes contains the value of the 76th variable (so,
+      ### in this example, the value of the variable indicating whether data
+      ### should be deleted), and therefore, this regular expression matches
+      ### all lines containing data that should be deleted.
+      
+      dataDeletionRegEx <-
+        paste0('(?:"[^"]*",){',
+               dataDeletionVarIndex-1,
+               '}"',
+               dataDeletionVarValue,
+               '"');
   
-  ### Run within local, temporary namespace (so that all variables
-  ### are deleted afterwards)
-  local({
+      ### Then read the datafile as character vector
+      fullPrivateDataFile <-
+        readLines(file.path(dataPath,
+                            currentFilename));
+      cat0("\n\nRead data file '", currentFilename, "'.\n\n");
   
-    ### First read in a temporary version of the data
-    dat <-
-      importLimeSurveyData(datafile = file.path(dataPath,
-                                                currentFilename),
-                           datafileRegEx = privateOUdataFileRegEx,
-                           scriptfile = file.path(dataPath,
-                                                  OUdataLoadScriptName),
-                           categoricalQuestions = categoricalQuestions);
-    
-    ### Then get the position of the variable used to indicate whether
-    ### data should be deleted:
-    dataDeletionVarIndex <-
-      grep(dataDeletionVarName, names(dat));
-    
-    ### Then construct the regular expression for matching the lines in
-    ### the dataset that contain the data of participants who indicated
-    ### they wanted their data deleted. A regular expression of the
-    ### following form is constructed:
-    ###
-    ### (?:"[^"]*",){75}"2"
-    ###
-    ### The '75' is the index minus one, and the '2' the value indicating
-    ### that data should be deleted. This regular expression matches any
-    ### value between a pair of double quotes followed by a comma exactly
-    ### 75 times; then matches a '2' between pair of double quotes. This
-    ### pair of double quotes contains the value of the 76th variable (so,
-    ### in this example, the value of the variable indicating whether data
-    ### should be deleted), and therefore, this regular expression matches
-    ### all lines containing data that should be deleted.
-    
-    dataDeletionRegEx <-
-      paste0('(?:"[^"]*",){',
-             dataDeletionVarIndex-1,
-             '}"',
-             dataDeletionVarValue,
-             '"');
-
-    ### Then read the datafile as character vector
-    fullPrivateDataFile <-
-      readLines(file.path(dataPath,
-                          currentFilename));
-    cat0("\n\nRead data file '", currentFilename, "'.\n\n");
-
-    ### Get indices of lines that have to be deleted
-    linesToDelete <- grep(dataDeletionRegEx,
-                          fullPrivateDataFile);
-    
-    ### Log deletion
-    cat0("Identified ", length(linesToDelete), " participants who ",
-         "indicated they want their data to be deleted, specifically, ",
-         "the following lines of the original raw dataset:\n\n",
-         vecTxtQ(linesToDelete));
-    
-    ### Delete those lines
-    fullPrivateDataFile <- fullPrivateDataFile[-linesToDelete];
-
-    ### Construct new filename to write public version of data to
-    newTmpFilename <- sub(privateFileIdentificationString,
-                          publicFileIdentificationString,
-                          currentFilename,
-                          fixed=TRUE);
-    
-    ### Store new datafile
-    writeLines(fullPrivateDataFile,
-               file.path(dataPath,
-                         newTmpFilename));
-
-    cat0("\n\nStored data file '", newTmpFilename, "'.\n\n");
-
-  });  ### End local namespace
-
+      ### Get indices of lines that have to be deleted
+      linesToDelete <- grep(dataDeletionRegEx,
+                            fullPrivateDataFile);
+      
+      ### Log deletion
+      cat0("Identified ", length(linesToDelete), " participants who ",
+           "indicated they want their data to be deleted, specifically, ",
+           "the following lines of the original raw dataset:\n\n",
+           vecTxtQ(linesToDelete));
+      
+      ### Delete those lines
+      fullPrivateDataFile <- fullPrivateDataFile[-linesToDelete];
+  
+      ### Construct new filename to write public version of data to
+      newTmpFilename <- sub(privateFileIdentificationString,
+                            publicFileIdentificationString,
+                            currentFilename,
+                            fixed=TRUE);
+      
+      ### Store new datafile
+      writeLines(fullPrivateDataFile,
+                 file.path(dataPath,
+                           newTmpFilename));
+  
+      cat0("\n\nStored data file '", newTmpFilename, "'.\n\n");
+  
+    });  ### End local namespace
+  
+  }
 }
 
 ########################################################################
@@ -264,7 +298,9 @@ write.csv(dat,
 
 ```
 
+# CIBERlite function definition
 
+Note that this function, when done, will be integrated into the userfriendlyscience package.
 
 ```{r}
 ### Add variables names of the determinants' measures and compute
@@ -275,9 +311,10 @@ for (i in seq_along(detStruct)) {
                                 dat);
 }
 
-lapply(dat[, grepl('attitude', names(dat))], mean, na.rm=TRUE);
-lapply(dat[, grepl('perceivedNorm', names(dat))], mean, na.rm=TRUE);
-lapply(dat[, grepl('perceivedBehavioralControl', names(dat))], mean, na.rm=TRUE);
+### View means
+# lapply(dat[, grepl('attitude', names(dat))], mean, na.rm=TRUE);
+# lapply(dat[, grepl('perceivedNorm', names(dat))], mean, na.rm=TRUE);
+# lapply(dat[, grepl('perceivedBehavioralControl', names(dat))], mean, na.rm=TRUE);
 
 CIBERlite <- function(data,
                       determinants,
@@ -332,10 +369,10 @@ CIBERlite <- function(data,
     print(scaleRange);
   }
   
-  print(dim(is.na(dat[, c(determinantNames, subDeterminantNames)])));
-  print((scaleRange[2] - scaleRange[1]));
-  print(class(dim(((dat[, c(determinantNames, subDeterminantNames)] - scaleRange[1]) /
-              (scaleRange[2] - scaleRange[1])))));
+  # print(dim(is.na(dat[, c(determinantNames, subDeterminantNames)])));
+  # print((scaleRange[2] - scaleRange[1]));
+  # print(class(dim(((dat[, c(determinantNames, subDeterminantNames)] - scaleRange[1]) /
+  #             (scaleRange[2] - scaleRange[1])))));
   
   ### Translate subdeterminants and determinants to 0-1 range
   dat[, c(determinantNames, subDeterminantNames)] <-
@@ -421,10 +458,7 @@ CIBERlite <- function(data,
   if (is.null(subDeterminantLabels)) {
     subDeterminantLabels <- subDeterminantNames;
   }
-  
-  print(determinantOrder);
-  print(subDeterminantLabels);
-  
+
   ggplot() +
     geom_hline(yintercept = c(0, 1),
                color="black") +
@@ -459,6 +493,12 @@ CIBERlite <- function(data,
     ylab(NULL);
 }
 
+```
+
+# CIBERlite plots
+
+```{r}
+
 CIBERlitePlots <- lapply(seq_along(detStruct),
                          function(i) {
                            behaviorName <- detStruct[[i]]$behaviorRegEx;
@@ -478,8 +518,11 @@ CIBERlitePlots <- lapply(seq_along(detStruct),
 
 grid.arrange(grobs=CIBERlitePlots, ncol=4);
 
-### Correlation between the two sub-determinants
+```
 
+# Correlation between the two sub-determinants
+
+```{r}
 cor(dat[, unlist(detStruct[[1]]$intention$perceivedNorm$varNames)], use='complete');
 
 ```
