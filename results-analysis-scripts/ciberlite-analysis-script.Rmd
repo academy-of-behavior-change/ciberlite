@@ -11,17 +11,19 @@ output:
 
 ## Status of this file
 
-This is the R Markdown file for the CIBERlite study. This study is a project of the Academcy of Behavior Change. The canonical URL for this study is https://ciberlite.com. Initially, this will resolve to the study's Open Science Framework repository (https://osf.io/2uwxp/), but in time it may point to a website to facilitate CIBERlite implementation by prevention organisations. The study's OSF repository (repo) synchronises with the GitHub repo at https://github.com/academy-of-behavior-change/ciberlite.
+This is the R Markdown file for the CIBERlite study. This study is a project of the Academy of Behavior Change. The canonical URL for this study is https://ciberlite.com. Initially, this will resolve to the study's Open Science Framework repository (https://osf.io/2uwxp/), but in time it may point to a website to facilitate CIBERlite implementation by prevention organisations. The study's OSF repository (repo) synchronises with the GitHub repo at https://github.com/academy-of-behavior-change/ciberlite.
 
 This R Markdown file is very much a living document, and as such, also contains all R code. For the CIBERlite plot, scroll down to the CIBERlite plots heading.
 
-Finally, note that because this is a living, cutting edge project, you will probably need the most up-to-date version of the `userfriendlyscience` package (*if* that has been submitted to CRAN yet). See https://userfriendlyscience.com for instructions as to how to install it.
+Note that because this is a living project, you will probably need the most up-to-date version of the `userfriendlyscience` package (*if* that has been submitted to CRAN yet). See https://userfriendlyscience.com for instructions as to how to install it.
 
 ## Background of the project
 
 CIBERlite is a project where we aim to provide an easy-to-use and apply rudimentary approximation of a determinant study, so that practitioners (e.g. for preventions organisations) can feasibly quickly get an idea of which determinants are the most relevant in predicting a given target behavior in a given target population. To develop this method, we conduct a study comparing relative determinant levels for eight behaviors in the general population.
 
 A second goal of CIBERlite, but only one that only emerged as we were working on this project, is to work towards a framework for calibrating determinant operationalisations over behaviors and populations.
+
+The preregistration form for this study is at https://osf.io/cjz6n/register/565fb3678c5e4a66b5582f67. That is a good place to start before reading further.
 
 ## License of these materials
 
@@ -499,6 +501,16 @@ CIBERlite <- function(data,
 
 ```{r results="asis"}
 
+### Set plot titles by adding expectations regarding determinant values
+plotSubTitles <- c(coffee = "Not drinking any coffee at all\n(Att: lo, PN: lo, PBC: lo)",
+                   publicTransport = "Mainly traveling by public transport\n(Att: lo, PN: hi, PBC: lo)",
+                   runRedLight = "Sometimes running a red light (by bike)\n(Att: lo, PN: lo, PBC: hi)",
+                   wasteSeparation = "Always carefully separating waste\n(Att: lo, PN: hi, PBC: hi)",
+                   conSomebody = "Con somebody for 10.000 euro\n(Att: hi, PN: lo, PBC: lo)",
+                   marathon = "Finish a marathon\n(Att: hi, PN: hi, PBC: lo)",
+                   longShower = "Often take extra long showers\n(Att: hi, PN: lo, PBC: hi)",
+                   brushingTeeth = "Brush your teeth every day\n(Att: hi, PN: hi, PBC: hi)");
+
 CIBERlitePlots <- lapply(seq_along(detStruct),
                          function(i) {
                            behaviorName <- detStruct[[i]]$behaviorRegEx;
@@ -513,13 +525,15 @@ CIBERlitePlots <- lapply(seq_along(detStruct),
                                             subDeterminantLabels=c("Exp", "Ins", "Inj", "Des", "Cap", "Con"),
                                             scaleRange=c(1,5),
                                             targets=detStruct[[i]]$intention$scaleVarName) +
-                                    ggtitle(behaviorName));
+                                    ggtitle(behaviorName,
+                                            subtitle = plotSubTitles[behaviorName]) +
+                                    theme(plot.subtitle=element_text(size=8)));
                          });
 
 arrangeGrob(grobs=CIBERlitePlots, ncol=4) %>%
   knitFig(figWidth=21/2.54,
           figHeight=14/2.54,
-          figCaption="Figure 1: a CIBER plot.");
+          figCaption="Figure 1: a CIBER plot. Note that in their operationalitions, all these behaviors related to the next month (... for the next month, ... in the next month, etc).<br />Att = Attitude, PN = Perceived Norm, PBC = Perceived Behavioral Control, Exp = Experiential Attitude, Ins = Instrumental Attitude, Inj = Injunctive Norm, Des = Descriptive Norm, Cap = Capacity, Con = Control.");
 
 ```
 
