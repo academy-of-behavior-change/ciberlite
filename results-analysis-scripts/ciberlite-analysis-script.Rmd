@@ -536,7 +536,7 @@ combinedCIBERlitePlot <- arrangeGrob(grobs=CIBERlitePlots, ncol=4);
 knitFig(combinedCIBERlitePlot,
         figWidth=21/2.54,
         figHeight=14/2.54,
-        figCaption="Figure 1: a CIBER plot. Note that in their operationalitions, all these behaviors related to the next month (... for the next month, ... in the next month, etc).<br />Att = Attitude, PN = Perceived Norm, PBC = Perceived Behavioral Control, Exp = Experiential Attitude, Ins = Instrumental Attitude, Inj = Injunctive Norm, Des = Descriptive Norm, Cap = Capacity, Con = Control.");
+        figCaption="Figure 1: a CIBERlite plot. Note that in their operationalitions, all these behaviors related to the next month (... for the next month, ... in the next month, etc).<br />Att = Attitude, PN = Perceived Norm, PBC = Perceived Behavioral Control, Exp = Experiential Attitude, Ins = Instrumental Attitude, Inj = Injunctive Norm, Des = Descriptive Norm, Cap = Capacity, Con = Control.");
 
 ggsave(plot = combinedCIBERlitePlot,
        file = file.path(outputPath,
