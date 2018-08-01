@@ -5,6 +5,8 @@ date: "`r format(Sys.time(), '%H:%M:%S on %Y-%m-%d %Z (GMT%z)')`"
 output:
   html_document:
     toc: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Introduction
@@ -42,18 +44,20 @@ require('userfriendlyscience');
 safeRequire('here');
 safeRequire('data.tree');
 safeRequire('tidyverse');
+safeRequire('plyr');
 safeRequire('gridExtra');
 safeRequire('readODS');
+safeRequire('pander');
 
 dataPath <- here::here('results-data-raw');
 processedDataPath <- here::here('results-data-processed');
 outputPath <- here::here('results-output');
 
-privateOUdataFileRegEx <- 'survey_722821_R_data_file_\\[PRIVATE-OU-version]';
-publicOUdataFileRegEx <- 'survey_722821_R_data_file_\\[PUBLIC-OU-version]';
-OUdataLoadScriptName <- 'survey_722821_R_syntax_file_[OU-version].R';
+privateOUdataFileRegEx <- 'survey_\\d{6}_R_data_file_\\[PRIVATE-OU-version\\d?]';
+publicOUdataFileRegEx <- 'survey_\\d{6}_R_data_file_\\[PUBLIC-OU-version\\d?]';
+OUdataLoadScriptName <- 'survey_\\d{6}_R_syntax_file_[OU-version].R';
 
-ondrzkDataFileRegEx <- 'survey_722821_R_data_file_\\[ondrzk-version]';
+ondrzkDataFileRegEx <- 'survey_\\d{6}_R_data_file_\\[ondrzk-version]';
 ondrzkDataLoadScriptName <- 'survey_722821_R_syntax_file_[ondrzk-version].R';
 
 categoricalQuestions <- c('sex',
@@ -84,6 +88,36 @@ detStruct <-
                                              determinantVar("perceivedBehavioralControl",
                                                             "pbc"))));
 });
+
+
+########################################################################
+### Specific function and variable definitions
+########################################################################
+
+### Load spatial and inhabitation density data for postcodes
+pcDat <- data.frame(postcode =  c(10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99),
+                    lat = c(52.3678024669572, 52.3455635724132, 52.2501138713815, 52.3585841561271, 52.3735313335077, 52.4657234141959, 52.6830233696612, 52.8198812701222, 52.639550621648, 52.4950689582663, 52.3856186275876, 52.2953703699729, 52.1292546069181, 52.161384292839, 52.1219310706044, 52.0684520747327, 52.0033402777623, 52.0563875683333, 52.0012138989129, 51.8986006453915, 51.9193874565932, 51.9106309680917, 51.8140252861272, 51.8149115339002, 52.0425276819077, 52.0934177824935, 52.1735550175486, 52.1523629740434, 52.223637595618, 52.0279361091616, 51.9054273863578, 51.915733212362, 51.8214914178629, 51.543768240357, 51.4892107569007, 51.3084062814104, 51.5147702745308, 51.5716616062968, 51.5747515937066, 51.6667015879655, 51.5549425996685, 51.6281052353666, 51.6782564610835, 51.7656968848253, 51.6366014520531, 51.3773177941176, 51.4597694831659, 51.4561668812027, 51.5657913844856, 51.3673618493396, 51.2198301363131, 51.0044676214146, 50.8399895742703, 50.8892820844185, 50.8949574101474, 51.8139166230324, 51.8719970570536, 52.0258947138041, 51.9758504258543, 51.9808607088139, 51.9332441744435, 52.0118296962591, 52.1317418255387, 52.2066433697708, 52.2679816480253, 52.2558617315003, 52.3814194800148, 52.5961180135375, 52.7757597738851, 52.7160955644958, 52.4859065597251, 52.3693689406752, 52.5307269978189, 52.747461266424, 52.9652050745035, 52.9094416896853, 53.026376169836, 53.0313126432087, 53.2061363841068, 53.2017360846828, 53.2012055919669, 53.3555306903419, 53.166322821535, 53.1329669620421, 52.9877145107302, 52.9592909500932, 53.1332498567166, 53.2160520411166, 53.2440706462868, 53.3389037688135),
+                    lon = c(4.88265296235255, 4.92048844018191, 5.20016981451878, 5.19692084970926, 4.96119798514817, 4.80566389502282, 5.11709329957045, 4.82220173575481, 4.73944411275498, 4.65711588941856, 4.63162288403011, 4.61303752028347, 4.3931852765124, 4.51168737011436, 4.63123989742888, 4.29372836005594, 4.33979586949051, 4.54021535596711, 4.73452186458328, 4.61368753801164, 4.49164782911762, 4.33928060878812, 4.2829687516736, 4.69600707584607, 4.99433000213242, 5.1095360206426, 4.97767698785868, 5.32054575304636, 5.48553597975019, 5.38238247299173, 5.45767067590559, 5.18795319713936, 4.97922665393621, 3.66936390672942, 3.90470966273241, 3.79097509053622, 4.27097697088173, 4.50517380658332, 4.74318639278844, 4.84195733671919, 5.09638240155648, 5.00860229089637, 5.30772679514586, 5.46688460609673, 5.63639617277517, 5.38279769544641, 5.47322994631042, 5.70431204157048, 5.9899379118757, 6.10424312097242, 5.85259175752854, 5.83577253884675, 5.74094339560624, 5.93323298584949, 5.97735784656114, 5.86784740403142, 5.74067359988713, 5.66032248729721, 5.89735875172907, 6.07948324211148, 6.33285411615927, 6.63091103024003, 6.31125395599666, 5.99205974571486, 6.40504947547195, 6.88122082304407, 6.67828479011708, 6.54877480129994, 6.90784259899023, 6.35342435589724, 6.01919757591485, 6.13112521172761, 5.68385478833178, 5.90341298721153, 6.0379057614734, 5.70428744074426, 5.65270524920928, 5.48206467307413, 5.45632660753506, 5.80358549811831, 5.74644474592641, 5.95945766858073, 6.08416956383472, 6.39046332177174, 6.58818166864684, 6.97818596118079, 6.91595201151317, 6.57429045577232, 6.33816563415263, 6.72160735648967),
+                    inhabitationDensity = c(6412, 1857, 1831, 1451, 1519, 1679, 1010, 965, 1726, 1706, 2775, 1395, 2121, 2432, 1438, 4891, 1956, 1982, 1693, 1533, 4041, 2432, 1141, 1970, 1282, 3329, 1001, 1175, 1527, 1147, 782, 798, 829, 1101, 672, 559, 1049, 994, 1598, 1149, 2027, 989, 1441, 886, 782, 926, 1766, 1032, 651, 1044, 824, 1010, 1522, 810, 1487, 1783, 715, 1424, 1690, 894, 762, 780, 854, 1464, 1166, 1601, 926, 497, 644, 769, 1267, 538, 1176, 623, 705, 523, 1068, 422, 614, 2268, 337, 366, 674, 600, 790, 508, 703, 2596, 253, 484));
+
+### The inhabitation density is the 'environment address density'. According
+### to the Dutch Central Bureau for Statistics, these densities can be
+### meaningfully categorized into five degrees of urbanisation:
+###
+### > 2500 = extremely urban
+### > 1500 = very urban
+### > 1000 = urban
+### > 500  = rural
+### < 500  = very rural
+
+pcDat$urbanisation <- cut(pcDat$inhabitationDensity,
+                          breaks=c(0, 500, 1000, 1500, 2500, max(pcDat$inhabitationDensity)),
+                          labels=c("Very rural",
+                                   "Rural",
+                                   "Urban",
+                                   "Very urban",
+                                   "Extremely urban"),
+                          ordered_result = TRUE);
 
 ```
 
@@ -155,13 +189,17 @@ if (length(privateDataFiles) > 0) {
     ### are deleted afterwards)
     local({
     
+      currentScriptName <- sub('data_file_\\[PRIVATE-(.*)\\.csv',
+                               'syntax_file_\\[\\1.R',
+                               currentFilename);
+      
       ### First read in a temporary version of the data
       dat <-
         importLimeSurveyData(datafile = file.path(dataPath,
                                                   currentFilename),
                              datafileRegEx = privateOUdataFileRegEx,
                              scriptfile = file.path(dataPath,
-                                                    OUdataLoadScriptName),
+                                                    currentScriptName),
                              categoricalQuestions = categoricalQuestions);
       
       ### Then get the position of the variable used to indicate whether
@@ -233,12 +271,39 @@ if (length(privateDataFiles) > 0) {
 ### Import data from Open University survey
 ########################################################################
 
-dat_ou.raw <-
-  importLimeSurveyData(dataPath = dataPath,
-                       datafileRegEx = publicOUdataFileRegEx,
-                       scriptfile = file.path(dataPath,
-                                              OUdataLoadScriptName),
-                       categoricalQuestions = categoricalQuestions);
+publicDataFiles <-
+  list.files(dataPath);
+
+### Select only those matching the regular expression for
+### public Open University data files
+publicDataFiles <-
+  grep(publicOUdataFileRegEx,
+       publicDataFiles,
+       value=TRUE);
+
+if (length(publicDataFiles) > 0) {
+  ### Public data files are present, so read them.
+  dat_ou.raw.separate <- list();
+  ### Loop through the files
+  for (currentFilename in publicDataFiles) {
+      ### Derive name of script file to import data
+      currentScriptName <- sub('data_file_\\[PUBLIC-(.*)\\.csv',
+                               'syntax_file_\\[\\1.R',
+                               currentFilename);
+      ### Import data
+      dat_ou.raw.separate[[currentFilename]] <-
+        importLimeSurveyData(datafile = file.path(dataPath,
+                                                  currentFilename),
+                             datafileRegEx = privateOUdataFileRegEx,
+                             scriptfile = file.path(dataPath,
+                                                    currentScriptName),
+                                                    #OUdataLoadScriptName),
+                             categoricalQuestions = categoricalQuestions);
+  }
+  ### Merge datafiles
+  dat_ou.raw <- do.call(plyr::rbind.fill,
+                        dat_ou.raw.separate);
+}
 
 ### Verify that no entries were read where people indicated they wanted
 ### their data removed
@@ -284,15 +349,33 @@ write_ods(dat_ondrzk.raw[1:2, 7:75],
 ########################################################################
 
 ### Because these are different versions of LimeSurvey, the timing
-### variables are named differently, so copy the column names
-if (ncol(dat_ondrzk.raw) != ncol(dat_ou.raw)) {
-  stop("Data files to merge have different numbers of columns!");
-} else {
-  names(dat_ondrzk.raw) <- names(dat_ou.raw);
-}
+### variables are named differently, so make these consistent
+names(dat_ou.raw) <- sub("Vraag\\.?tijd\\.\\.",
+                         "questionTime_",
+                         names(dat_ou.raw));
+names(dat_ou.raw) <- sub("Groep\\.?tijd\\.\\.",
+                         "groupTime_",
+                         names(dat_ou.raw));
+names(dat_ondrzk.raw) <- sub("Vraag\\.?tijd\\.\\.",
+                             "questionTime_",
+                             names(dat_ondrzk.raw));
+names(dat_ondrzk.raw) <- sub("Groep\\.?tijd\\.\\.",
+                             "groupTime_",
+                             names(dat_ondrzk.raw));
 
 ### Merge data files
-dat <- rbind(dat_ou.raw, dat_ondrzk.raw);
+dat <- rbind.fill(dat_ou.raw, dat_ondrzk.raw);
+
+### Add urbanisation using first two numbers of postcode
+dat <- merge(dat,
+             pcDat[, c('postcode', 'urbanisation')],
+             by.x="region", 
+             by.y="postcode",
+             all.x = TRUE,
+             all.y = FALSE);
+
+### Set to missing for participants from another country than the Netherlands
+dat$urbanisation[dat$country != "Nederland"] <- NA;
 
 ### Export merged datafile
 write.csv(dat,
@@ -498,7 +581,48 @@ CIBERlite <- function(data,
 
 ```
 
-# CIBERlite plots
+# Sample description
+
+The dataset (after sanitization) has `r nrow(dat)` rows. `r sum(!is.na(dat$submitdate))` rows submitted the complete survey (i.e. have a non-missing value for `submitdate`). Note that providing demographic data was optional, so less data may be available for the demographic variables (age, sex, education, country, and region).
+
+## Age
+
+```{r}
+  pander(descr(dat$age));
+  powerHist(dat$age);
+```
+
+## Sex
+
+```{r}
+  pander(descr(dat$sex));
+  ggEasyBar(dat, 'sex');
+```
+
+## Education
+
+```{r}
+  pander(descr(dat$education));
+  ggEasyBar(dat, 'education');
+```
+
+## Country
+
+```{r}
+  pander(descr(dat$country));
+```
+
+## Region
+
+We registered the first two numbers of each participant's postcode. For Dutch participants, these were used to compute whether they lived in a rural or urban area.
+
+```{r}
+  pander(descr(dat$urbanisation));
+```
+
+# Analyses
+
+## CIBERlite plots
 
 ```{r results="asis"}
 
@@ -548,7 +672,7 @@ ggsave(plot = combinedCIBERlitePlot,
 
 ```
 
-# Correlation between the two sub-determinants
+## Correlation between the two sub-determinants
 
 ```{r}
 cor(dat[, unlist(detStruct[[1]]$intention$perceivedNorm$varNames)], use='complete');
