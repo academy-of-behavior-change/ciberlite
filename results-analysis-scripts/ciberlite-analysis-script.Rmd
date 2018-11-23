@@ -341,8 +341,18 @@ dataEntryTemplateFile <-
 if (file.exists(dataEntryTemplateFile)) {
   unlink(dataEntryTemplateFile)
 }
-write_ods(dat_ondrzk.raw[1:2, 7:75],
-          dataEntryTemplateFile);
+readODS::write_ods(dat_ondrzk.raw[1:2, 7:75],
+                   dataEntryTemplateFile);
+
+########################################################################
+### Read the data that was entered from the paper-and-pencil survey
+########################################################################
+
+dataEntryFile <-
+  file.path(processedDataPath,
+            "data-entry-template--data-entered.ods");
+dat_paperPencil <-
+  readODS::read_ods(dataEntryFile);
 
 ########################################################################
 ### Data merging and aggregations
@@ -363,8 +373,13 @@ names(dat_ondrzk.raw) <- sub("Groep\\.?tijd\\.\\.",
                              "groupTime_",
                              names(dat_ondrzk.raw));
 
-### Merge data files
+### Merge online data files
 dat <- rbind.fill(dat_ou.raw, dat_ondrzk.raw);
+
+### We do not merge with the paper and pencil data file;
+### this contains only a few participants, and in additon,
+### contains different coding for the variables.
+#dat <- rbind.fill(dat, dat_paperPencil);
 
 ### Add urbanisation using first two numbers of postcode
 dat <- merge(dat,
@@ -588,28 +603,28 @@ The dataset (after sanitization) has `r nrow(dat)` rows. `r sum(!is.na(dat$submi
 ## Age
 
 ```{r}
-  pander(descr(dat$age));
-  powerHist(dat$age);
+  pander(userfriendlyscience::descr(dat$age));
+  userfriendlyscience::powerHist(dat$age);
 ```
 
 ## Sex
 
 ```{r}
-  pander(descr(dat$sex));
-  ggEasyBar(dat, 'sex');
+  pander(userfriendlyscience::descr(factor(dat$sex)));
+  userfriendlyscience::ggEasyBar(dat, 'sex');
 ```
 
 ## Education
 
 ```{r}
-  pander(descr(dat$education));
-  ggEasyBar(dat, 'education');
+  pander(userfriendlyscience::descr(factor(dat$education)));
+  userfriendlyscience::ggEasyBar(dat, 'education');
 ```
 
 ## Country
 
 ```{r}
-  pander(descr(dat$country));
+  pander(userfriendlyscience::descr(dat$country));
 ```
 
 ## Region
@@ -617,7 +632,15 @@ The dataset (after sanitization) has `r nrow(dat)` rows. `r sum(!is.na(dat$submi
 We registered the first two numbers of each participant's postcode. For Dutch participants, these were used to compute whether they lived in a rural or urban area.
 
 ```{r}
-  pander(descr(dat$urbanisation));
+  pander(userfriendlyscience::descr(dat$urbanisation));
+```
+
+## Duration
+
+We recorded how long participants took to complete the questionnaire.
+
+```{r}
+  pander(userfriendlyscience::descr(dat$Totaaltijd/60));
 ```
 
 # Analyses
