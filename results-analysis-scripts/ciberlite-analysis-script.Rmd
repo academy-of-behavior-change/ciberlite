@@ -1,9 +1,10 @@
 ---
 title: "CIBERlite"
 author: "Gjalt-Jorn Peters & Rik Crutzen"
-date: "`r format(Sys.time(), '%H:%M:%S on %Y-%m-%d %Z (GMT%z)')`"
+date: "`r format(Sys.time(), '%H:%M:%S on %Y-%m-%d %Z (UTC%z)')`"
 output:
   html_document:
+    code_folding: hide
     toc: true
 editor_options: 
   chunk_output_type: console
@@ -37,17 +38,29 @@ Here, we configure some settings and load the required R packages.
 
 ```{r setup, include=FALSE}
 
-knitr::opts_chunk$set(echo = TRUE);
-options(ufs.debug = FALSE);
+if (!(installed.packages()['ufs', 'Version'] >= "0.4")) {
+  stop("You need to have at least version 0.4 of the `ufs` package installed; ",
+       "install it with:\n\ninstall.packages('ufs');");
+}
 
-require('userfriendlyscience');
-safeRequire('here');
-safeRequire('data.tree');
-safeRequire('tidyverse');
-safeRequire('plyr');
-safeRequire('gridExtra');
-safeRequire('readODS');
-safeRequire('pander');
+ufs::opts$set(debug = FALSE);
+
+ufs::checkPkgs(
+  'here',        ### For easy relative paths
+  'data.tree',   ### For the `isLeaf()` function
+  'plyr',        ### For rbind.fill
+  'ggplot2',     ### Graphics
+  'gridExtra',   ### Graphics
+  'readODS',     ### Reading OpenDocument Spreadsheets
+  'pander'       ### For easily producing `descr` objects
+);
+
+### Get development versions of two packages
+ufs::quietGitLabUpdate("r-packages/gdpR", quiet = FALSE);
+ufs::quietGitLabUpdate("r-packages/limonaid", quiet = FALSE);
+
+knitr::opts_chunk$set(echo = TRUE);
+
 
 dataPath <- here::here('results-data-raw');
 processedDataPath <- here::here('results-data-processed');
@@ -61,7 +74,8 @@ ondrzkDataFileRegEx <- 'survey_\\d{6}_R_data_file_\\[ondrzk-version]';
 ondrzkDataLoadScriptName <- 'survey_722821_R_syntax_file_[ondrzk-version].R';
 
 categoricalQuestions <- c('sex',
-                          'education');
+                          'education',
+                          'country');
 
 dataDeletionVarCode <- "dataMustBeDeleted";
 dataDeletionSubQuestionCode <- "delete";
@@ -69,26 +83,38 @@ dataDeletionVarValue <- "2";
 privateFileIdentificationString <- "PRIVATE-";
 publicFileIdentificationString <- "PUBLIC-";
 
+countryVarName <- "^country$";
+
 behaviors <- c("coffee", "publicTransport",
                "runRedLight", "wasteSeparation",
                "conSomebody", "marathon",
                "longShower", "brushingTeeth");
 
 detStruct <-
-  lapply(behaviors,
-         function(behav) {
-  return(determinantStructure(behav,
-                              list(behaviorRegEx = behav),
-                              determinantVar("intention",
-                                             "intention",
-                                             determinantVar("attitude",
-                                                            "att"),
-                                             determinantVar("perceivedNorm",
-                                                            "pn"),
-                                             determinantVar("perceivedBehavioralControl",
-                                                            "pbc"))));
-});
-
+  lapply(
+    behaviors,
+    function(behav) {
+      return(
+        behaviorchange::determinantStructure(
+          behav,
+          list(behaviorRegEx = behav),
+          behaviorchange::determinantVar(
+            "intention",
+            "intention",
+            behaviorchange::determinantVar(
+              "attitude",
+              "att"),
+            behaviorchange::determinantVar(
+              "perceivedNorm",
+              "pn"),
+            behaviorchange::determinantVar(
+              "perceivedBehavioralControl",
+              "pbc")
+          )
+        )
+      );
+    }
+  );
 
 ########################################################################
 ### Specific function and variable definitions
@@ -125,7 +151,7 @@ pcDat$urbanisation <- cut(pcDat$inhabitationDensity,
 
 This includes sanitizing the private data files for publication.
 
-```{r}
+```{r, results="asis"}
 
 ########################################################################
 ###
@@ -150,7 +176,7 @@ This includes sanitizing the private data files for publication.
 ###   git clone --mirror https://github.com/academy-of-behavior-change/ciberlite
 ###
 ### Then you can delete all comma separated values (*.csv) files from the
-### git history  using:
+### git history using:
 ###
 ###   java -jar B:\Apps\bfg\bfg-1.13.0.jar --delete-files *.csv ciberlite.git
 ###
@@ -192,63 +218,30 @@ if (length(privateDataFiles) > 0) {
       currentScriptName <- sub('data_file_\\[PRIVATE-(.*)\\.csv',
                                'syntax_file_\\[\\1.R',
                                currentFilename);
+
+      scriptfilePath <- file.path(dataPath,
+                                  currentScriptName);
       
-      ### First read in a temporary version of the data
-      dat <-
-        importLimeSurveyData(datafile = file.path(dataPath,
-                                                  currentFilename),
-                             datafileRegEx = privateOUdataFileRegEx,
-                             scriptfile = file.path(dataPath,
-                                                    currentScriptName),
-                             categoricalQuestions = categoricalQuestions);
-      
-      ### Then get the position of the variable used to indicate whether
-      ### data should be deleted:
-      dataDeletionVarIndex <-
-        grep(dataDeletionVarName, names(dat));
-      
-      ### Then construct the regular expression for matching the lines in
-      ### the dataset that contain the data of participants who indicated
-      ### they wanted their data deleted. A regular expression of the
-      ### following form is constructed:
-      ###
-      ### (?:"[^"]*",){75}"2"
-      ###
-      ### The '75' is the index minus one, and the '2' the value indicating
-      ### that data should be deleted. This regular expression matches any
-      ### value between a pair of double quotes followed by a comma exactly
-      ### 75 times; then matches a '2' between pair of double quotes. This
-      ### pair of double quotes contains the value of the 76th variable (so,
-      ### in this example, the value of the variable indicating whether data
-      ### should be deleted), and therefore, this regular expression matches
-      ### all lines containing data that should be deleted.
-      
-      dataDeletionRegEx <-
-        paste0('(?:"[^"]*",){',
-               dataDeletionVarIndex-1,
-               '}"',
-               dataDeletionVarValue,
-               '"');
-  
       ### Then read the datafile as character vector
       fullPrivateDataFile <-
         readLines(file.path(dataPath,
                             currentFilename));
-      cat0("\n\nRead data file '", currentFilename, "'.\n\n");
-  
-      ### Get indices of lines that have to be deleted
-      linesToDelete <- grep(dataDeletionRegEx,
-                            fullPrivateDataFile);
-      
-      ### Log deletion
-      cat0("Identified ", length(linesToDelete), " participants who ",
-           "indicated they want their data to be deleted, specifically, ",
-           "the following lines of the original raw dataset:\n\n",
-           vecTxtQ(linesToDelete));
-      
-      ### Delete those lines
-      fullPrivateDataFile <- fullPrivateDataFile[-linesToDelete];
-  
+      ufs::cat0("\n\nRead data file '", currentFilename, "'.\n\n");
+
+      ### Remove lines of participants who don't want their data to be used
+      partialPrivateDataFile <-
+        gdpR::removeLinesFromRawData(fullPrivateDataFile,
+                                     varName=dataDeletionVarName,
+                                     varValue=dataDeletionVarValue,
+                                     scriptfile=scriptfilePath);
+
+      ### Set all countries except for 1 and 2 to missing
+      partialPrivateDataFile <-
+        gdpR::removeValuesFromRawData(partialPrivateDataFile,
+                                      varName='country',
+                                      varValuesToRetain=c(1,2),
+                                      scriptfile=scriptfilePath);
+
       ### Construct new filename to write public version of data to
       newTmpFilename <- sub(privateFileIdentificationString,
                             publicFileIdentificationString,
@@ -256,11 +249,11 @@ if (length(privateDataFiles) > 0) {
                             fixed=TRUE);
       
       ### Store new datafile
-      writeLines(fullPrivateDataFile,
+      writeLines(partialPrivateDataFile,
                  file.path(dataPath,
                            newTmpFilename));
   
-      cat0("\n\nStored data file '", newTmpFilename, "'.\n\n");
+      ufs::cat0("\n\nStored data file '", newTmpFilename, "'.\n\n");
   
     });  ### End local namespace
   
@@ -292,13 +285,14 @@ if (length(publicDataFiles) > 0) {
                                currentFilename);
       ### Import data
       dat_ou.raw.separate[[currentFilename]] <-
-        importLimeSurveyData(datafile = file.path(dataPath,
-                                                  currentFilename),
-                             datafileRegEx = privateOUdataFileRegEx,
-                             scriptfile = file.path(dataPath,
-                                                    currentScriptName),
-                                                    #OUdataLoadScriptName),
-                             categoricalQuestions = categoricalQuestions);
+        limonaid::ls_import_data(
+          datafile = file.path(dataPath,
+                               currentFilename),
+          datafileRegEx = privateOUdataFileRegEx,
+          scriptfile = file.path(dataPath,
+                                 currentScriptName),
+          categoricalQuestions = categoricalQuestions
+        );
   }
   ### Merge datafiles
   dat_ou.raw <- do.call(plyr::rbind.fill,
@@ -323,11 +317,13 @@ if (any(dat_ou.raw[, dataDeletionVarName]==dataDeletionVarValue, na.rm=TRUE)) {
 ########################################################################
 
 dat_ondrzk.raw <-
-  importLimeSurveyData(dataPath = dataPath,
-                       datafileRegEx = ondrzkDataFileRegEx,
-                       scriptfile = file.path(dataPath,
-                                              ondrzkDataLoadScriptName),
-                       categoricalQuestions = categoricalQuestions);
+  limonaid::ls_import_data(
+    dataPath = dataPath,
+    datafileRegEx = ondrzkDataFileRegEx,
+    scriptfile = file.path(dataPath,
+                           ondrzkDataLoadScriptName),
+    categoricalQuestions = categoricalQuestions
+  );
 
 ########################################################################
 ### Paper-and-pencil survey
@@ -374,7 +370,7 @@ names(dat_ondrzk.raw) <- sub("Groep\\.?tijd\\.\\.",
                              names(dat_ondrzk.raw));
 
 ### Merge online data files
-dat <- rbind.fill(dat_ou.raw, dat_ondrzk.raw);
+dat <- plyr::rbind.fill(dat_ou.raw, dat_ondrzk.raw);
 
 ### We do not merge with the paper and pencil data file;
 ### this contains only a few participants, and in additon,
@@ -407,9 +403,8 @@ Note that this function, when done, will be integrated into the userfriendlyscie
 ### Add variables names of the determinants' measures and compute
 ### means where necessary
 for (i in seq_along(detStruct)) {
-  detStructAddVarNames(detStruct[[i]], names(dat));
-  dat <- detStructComputeScales(detStruct[[i]],
-                                dat);
+  behaviorchange::detStructAddVarNames(detStruct[[i]], names(dat));
+  dat <- behaviorchange::detStructComputeScales(detStruct[[i]], dat);
 }
 
 ### View means
@@ -483,11 +478,16 @@ CIBERlite <- function(data,
   if (is.list(determinants)) {
     ### We also have subdeterminants, so also get the means for those.
     
-    subDeterminantDat<- sapply(dat[, subDeterminantNames],
-                               function(x) {
-                                 return(c(mean = mean(x, na.rm=TRUE),
-                                          sd = sd(x, na.rm=TRUE)));
-                               }) %>% t %>% as.data.frame;
+    subDeterminantDat <-
+      as.data.frame(t(
+        sapply(
+          dat[, subDeterminantNames],
+          function(x) {
+            return(c(mean = mean(x, na.rm=TRUE),
+                     sd = sd(x, na.rm=TRUE)));
+            }
+          )
+        ));
     subDeterminantDat$subdeterminant <- row.names(subDeterminantDat);
     subDeterminantDat$determinant <- rep(determinantNames,
                                          sapply(determinants, length));
@@ -495,20 +495,21 @@ CIBERlite <- function(data,
                                   sapply(determinants, length));
   }
 
-  determinantDat <- sapply(dat[, determinantNames],
-                           function(x) {
-                             return(c(mean = mean(x, na.rm=TRUE),
-                                      sd = sd(x, na.rm=TRUE)));
-                           }) %>%
-    t %>%
-    as.data.frame;
+  determinantDat <-
+    as.data.frame(t(
+      sapply(dat[, determinantNames],
+             function(x) {
+               return(c(mean = mean(x, na.rm=TRUE),
+                        sd = sd(x, na.rm=TRUE)));
+               })
+    ));
   determinantDat$determinant <- row.names(determinantDat);
   determinantDat$xPos <- determinantOrder;
   
   determinantTargetCorObject <-
-    associationMatrix(dat,
-                      x = determinantNames,
-                      y = targets);
+    ufs::associationMatrix(dat,
+                           x = determinantNames,
+                           y = targets);
   
   determinantTarget.r <-
     determinantTargetCorObject$output$raw$es;
@@ -522,25 +523,33 @@ CIBERlite <- function(data,
       tmpDf <- cbind(determinantTargetCorObject$output$raw$ci.lo[, targetIndex],
                                        determinantTargetCorObject$output$raw$es[, targetIndex],
                                        determinantTargetCorObject$output$raw$ci.hi[, targetIndex]);
-      return(lapply(1:nrow(tmpDf),
-                    function(determinantIndex) {
-                      return(diamondCoordinates(tmpDf[determinantIndex, ],
-                                                otherAxisValue = determinantIndex));
-                    }));
+      return(
+        lapply(
+          1:nrow(tmpDf),
+          function(determinantIndex) {
+            return(
+              ufs::diamondCoordinates(
+                tmpDf[determinantIndex, ],
+                otherAxisValue = determinantIndex)
+              );
+            }
+          )
+        );
      });
   
   rDiamondLayer <- 
     lapply(1:length(targets), function(targetIndex) {
       tmpDf <-
-        cbind(determinantTargetCorObject$output$raw$ci.lo[, targetIndex],
-              determinantTargetCorObject$output$raw$es[, targetIndex],
-              determinantTargetCorObject$output$raw$ci.hi[, targetIndex]) %>%
-        as.data.frame;
-      return(ggDiamondLayer(tmpDf,
-                            direction="vertical",
-                            color=rDiamondAesthetics$fill,
-                            lineColor=rDiamondAesthetics$color,
-                            alpha=rDiamondAesthetics$alpha));
+        as.data.frame(
+          cbind(determinantTargetCorObject$output$raw$ci.lo[, targetIndex],
+                determinantTargetCorObject$output$raw$es[, targetIndex],
+                determinantTargetCorObject$output$raw$ci.hi[, targetIndex])
+        );
+      return(ufs::ggDiamondLayer(tmpDf,
+                                 direction="vertical",
+                                 color=rDiamondAesthetics$fill,
+                                 lineColor=rDiamondAesthetics$color,
+                                 alpha=rDiamondAesthetics$alpha));
      });
 
   if (getOption('ufs.debug', FALSE)) {
@@ -560,87 +569,66 @@ CIBERlite <- function(data,
     subDeterminantLabels <- subDeterminantNames;
   }
 
-  ggplot() +
-    geom_hline(yintercept = c(0, 1),
-               color="black") +
-    geom_bar(data = subDeterminantDat,
-             aes_string(x = 'xPos',
-                        y = 'mean',
-                        group = 'subdeterminant'),
-             stat='identity',
-             position='dodge',
-             fill=subDeterminantAesthetics$fill,
-             color=subDeterminantAesthetics$color,
-             alpha=subDeterminantAesthetics$alpha) +
-    geom_bar(data = determinantDat,
-             aes_string(x = 'xPos',
-                        y = 'mean'),
-             stat='identity',
-             position='identity',
-             fill=determinantAesthetics$fill,
-             color=determinantAesthetics$color,
-             alpha=determinantAesthetics$alpha) +
+  ggplot2::ggplot() +
+    ggplot2::geom_hline(yintercept = c(0, 1),
+                        color="black") +
+    ggplot2::geom_bar(data = subDeterminantDat,
+                      ggplot2::aes_string(x = 'xPos',
+                                          y = 'mean',
+                                          group = 'subdeterminant'),
+                      stat='identity',
+                      position='dodge',
+                      fill=subDeterminantAesthetics$fill,
+                      color=subDeterminantAesthetics$color,
+                      alpha=subDeterminantAesthetics$alpha) +
+    ggplot2::geom_bar(data = determinantDat,
+                      ggplot2::aes_string(x = 'xPos',
+                                          y = 'mean'),
+                      stat='identity',
+                      position='identity',
+                      fill=determinantAesthetics$fill,
+                      color=determinantAesthetics$color,
+                      alpha=determinantAesthetics$alpha) +
     rDiamondLayer +
-    theme_minimal() +
-    coord_cartesian(ylim=c(0,1)) +
-    scale_x_continuous(breaks=determinantOrder,
-                       labels=determinantLabels,
-                       sec.axis=dup_axis(breaks=c(determinantOrder-.25,
-                                                  determinantOrder+.25),
-                                         labels=c(subDeterminantLabels[is.odd(seq_along(subDeterminantLabels))],
-                                                  subDeterminantLabels[is.even(seq_along(subDeterminantLabels))]))) +
-    ggtitle(title) +
-    xlab(NULL) +
-    ylab(NULL);
+    ggplot2::theme_minimal() +
+    ggplot2::coord_cartesian(ylim=c(0,1)) +
+    ggplot2::scale_x_continuous(
+      breaks=determinantOrder,
+      labels=determinantLabels,
+      sec.axis=ggplot2::dup_axis(
+        breaks=c(determinantOrder-.25,
+                 determinantOrder+.25),
+        labels=c(subDeterminantLabels[ufs::is.odd(seq_along(subDeterminantLabels))],
+                 subDeterminantLabels[ufs::is.even(seq_along(subDeterminantLabels))]))) +
+    ggplot2::ggtitle(title) +
+    ggplot2::xlab(NULL) +
+    ggplot2::ylab(NULL);
 }
 
 ```
 
 # Sample description
 
-The dataset (after sanitization) has `r nrow(dat)` rows. `r sum(!is.na(dat$submitdate))` rows submitted the complete survey (i.e. have a non-missing value for `submitdate`). Note that providing demographic data was optional, so less data may be available for the demographic variables (age, sex, education, country, and region).
-
-## Age
+The dataset (after sanitization) has `r nrow(dat)` rows. `r sum(!is.na(dat$submitdate))` rows submitted the complete survey (i.e. have a non-missing value for `submitdate`). Note that providing demographic data was optional, so less data may be available for the demographic variables (age, sex, education, country, and region). We also registered the first two numbers of each participant's postcode. For Dutch participants, these were used to compute whether they lived in a rural or urban area.
 
 ```{r}
-  pander(userfriendlyscience::descr(dat$age));
-  userfriendlyscience::powerHist(dat$age);
-```
 
-## Sex
+dat$sex_cat <- factor(dat$sex);
+dat$edu_cat <- factor(dat$education);
+dat$duration_minutes <- dat$Totaaltijd/60;
 
-```{r}
-  pander(userfriendlyscience::descr(factor(dat$sex)));
-  userfriendlyscience::ggEasyBar(dat, 'sex');
-```
-
-## Education
-
-```{r}
-  pander(userfriendlyscience::descr(factor(dat$education)));
-  userfriendlyscience::ggEasyBar(dat, 'education');
-```
-
-## Country
-
-```{r}
-  pander(userfriendlyscience::descr(dat$country));
-```
-
-## Region
-
-We registered the first two numbers of each participant's postcode. For Dutch participants, these were used to compute whether they lived in a rural or urban area.
-
-```{r}
-  pander(userfriendlyscience::descr(dat$urbanisation));
-```
-
-## Duration
-
-We recorded how long participants took to complete the questionnaire.
-
-```{r}
-  pander(userfriendlyscience::descr(dat$Totaaltijd/60));
+rosetta::descr(
+  dat,
+  items = c(
+    'age',
+    'sex_cat',
+    'edu_cat',
+    'country',
+    'urbanisation',
+    'duration_minutes'
+  )
+);
+    
 ```
 
 # Analyses
@@ -663,35 +651,38 @@ CIBERlitePlots <- lapply(seq_along(detStruct),
                          function(i) {
                            behaviorName <- detStruct[[i]]$behaviorRegEx;
                            detStructVars <-
-                             detStruct[[i]]$Get('varNames', filterFun=isLeaf);
+                             detStruct[[i]]$Get('varNames', filterFun=data.tree::isLeaf);
                            ### Set name to variable name of overarching determinant
                            names(detStructVars) <-
-                             detStruct[[i]]$Get("scaleVarName", filterFun=isLeaf);
+                             detStruct[[i]]$Get("scaleVarName", filterFun=data.tree::isLeaf);
                            return(CIBERlite(dat,
                                             determinants=detStructVars,
                                             determinantLabels=c('Att', 'PN', 'PBC'),
                                             subDeterminantLabels=c("Exp", "Ins", "Inj", "Des", "Cap", "Con"),
                                             scaleRange=c(1,5),
                                             targets=detStruct[[i]]$intention$scaleVarName) +
-                                    ggtitle(behaviorName,
-                                            subtitle = plotSubTitles[behaviorName]) +
-                                    theme(plot.subtitle=element_text(size=8)));
+                                    ggplot2::ggtitle(behaviorName,
+                                                     subtitle = plotSubTitles[behaviorName]) +
+                                    ggplot2::theme(plot.subtitle=ggplot2::element_text(size=8)));
                          });
 
-combinedCIBERlitePlot <- arrangeGrob(grobs=CIBERlitePlots, ncol=4);
+combinedCIBERlitePlot <- gridExtra::arrangeGrob(grobs=CIBERlitePlots, ncol=4);
 
-knitFig(combinedCIBERlitePlot,
-        figWidth=21/2.54,
-        figHeight=14/2.54,
-        figCaption="Figure 1: a CIBERlite plot. Note that in their operationalitions, all these behaviors related to the next month (... for the next month, ... in the next month, etc).<br />Att = Attitude, PN = Perceived Norm, PBC = Perceived Behavioral Control, Exp = Experiential Attitude, Ins = Instrumental Attitude, Inj = Injunctive Norm, Des = Descriptive Norm, Cap = Capacity, Con = Control.");
+ufs::knitFig(
+  combinedCIBERlitePlot,
+  figWidth=21/2.54,
+  figHeight=14/2.54,
+  figCaption="Figure 1: a CIBERlite plot. Note that in their operationalitions, all these behaviors related to the next month (... for the next month, ... in the next month, etc).<br />Att = Attitude, PN = Perceived Norm, PBC = Perceived Behavioral Control, Exp = Experiential Attitude, Ins = Instrumental Attitude, Inj = Injunctive Norm, Des = Descriptive Norm, Cap = Capacity, Con = Control."
+);
 
-ggsave(plot = combinedCIBERlitePlot,
-       file = file.path(outputPath,
-                        "Figure-1.png"),
-       dpi=300,
-       width=21,
-       height=14,
-       units="cm");
+ggplot2::ggsave(
+  plot = combinedCIBERlitePlot,
+  file = file.path(outputPath,
+                   "Figure-1.png"),
+  dpi=300,
+  width=21,
+  height=14,
+  units="cm");
 
 ```
 
@@ -699,5 +690,4 @@ ggsave(plot = combinedCIBERlitePlot,
 
 ```{r}
 cor(dat[, unlist(detStruct[[1]]$intention$perceivedNorm$varNames)], use='complete');
-
 ```
